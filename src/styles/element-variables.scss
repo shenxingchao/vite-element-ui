@@ -1,0 +1,10 @@
+/// color|1|Brand Color|0
+$--color-primary: $theme !default;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: 'element-plus/theme-chalk/fonts';
+@import 'element-plus/packages/theme-chalk/src/index';
+
+:export {
+  theme: $--color-primary;
+}
