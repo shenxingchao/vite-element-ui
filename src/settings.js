@@ -1,5 +1,5 @@
 export default {
-  title: 'vue-admin-elementui',
+  title: 'vite-element-ui',
 
   /**
    * @type {boolean} true | false
@@ -24,3 +24,4 @@ export default {
    */
   tagsView: true
 }
+//已完成

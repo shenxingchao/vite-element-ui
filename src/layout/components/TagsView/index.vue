@@ -20,6 +20,7 @@
 <script>
 import ScrollPane from './ScrollPane.vue'
 import path from 'path'
+console.log(path)
 
 export default {
   components: { ScrollPane },

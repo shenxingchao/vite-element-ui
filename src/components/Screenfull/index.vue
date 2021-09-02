@@ -5,47 +5,71 @@
 </template>
 
 <script>
+import {
+  defineComponent,
+  getCurrentInstance,
+  reactive,
+  toRefs,
+  onMounted,
+  onBeforeUnmount,
+} from 'vue'
 import screenfull from 'screenfull'
-export default {
-  name: 'Screenfull',
-  data() {
-    return {
-      isFullscreen: false
-    }
-  },
-  mounted() {
-    this.init()
-  },
-  beforeDestroy() {
-    this.destroy()
-  },
-  methods: {
-    click() {
+
+export default defineComponent({
+  components: {},
+  setup() {
+    //当前组件实例
+    const internalInstance = getCurrentInstance()
+
+    //访问 globalProperties
+    const global = internalInstance?.appContext.config.globalProperties
+
+    //数据对象
+    let data = reactive({
+      isFullscreen: false,
+    })
+
+    const click = () => {
       if (!screenfull.isEnabled) {
         //fix bug enable attribute name error
-        this.$message({
+        global.$message({
           message: 'you browser can not work',
-          type: 'warning'
+          type: 'warning',
         })
         return false
       }
       screenfull.toggle()
-    },
-    change() {
-      this.isFullscreen = screenfull.isFullscreen
-    },
-    init() {
+    }
+
+    const change = () => {
+      data.isFullscreen = screenfull.isFullscreen
+    }
+
+    const init = () => {
       if (screenfull.enabled) {
-        screenfull.on('change', this.change)
-      }
-    },
-    destroy() {
-      if (screenfull.enabled) {
-        screenfull.off('change', this.change)
+        screenfull.on('change', change)
       }
     }
-  }
-}
+    const destroy = () => {
+      if (screenfull.enabled) {
+        screenfull.off('change', change)
+      }
+    }
+
+    onMounted(() => {
+      init()
+    })
+
+    onBeforeUnmount(() => {
+      destroy()
+    })
+
+    return {
+      ...toRefs(data),
+      click,
+    }
+  },
+})
 </script>
 
 <style scoped>
@@ -58,3 +82,4 @@ export default {
   vertical-align: 10px;
 }
 </style>
+//已完成

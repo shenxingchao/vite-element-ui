@@ -1,12 +1,9 @@
 <template>
   <div class="navbar">
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
     <breadcrumb class="breadcrumb-container" />
-
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <search id="header-search" class="right-menu-item" />
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
       <el-dropdown class="avatar-container" trigger="click">
@@ -19,7 +16,7 @@
             <router-link to="/">
               <el-dropdown-item>主页</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/shenxingchao/vue-admin-elementui">
+            <a target="_blank" href="https://github.com/shenxingchao/vite-element-ui">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
@@ -33,34 +30,52 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import { defineComponent } from 'vue'
+import { mapGetters, useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
-import Search from '@/components/HeaderSearch/index.vue'
+import { useRouter, useRoute } from 'vue-router'
 
-export default {
+export default defineComponent({
   components: {
-    Breadcrumb,
     Hamburger,
+    Breadcrumb,
     Screenfull,
-    Search,
   },
   computed: {
     ...mapGetters(['sidebar', 'avatar', 'device']),
   },
-  methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
-    async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
-    },
-  },
-}
-</script>
+  setup() {
+    const store = useStore()
 
+    //定义router
+    const router = useRouter()
+    const route = useRoute()
+
+    const toggleSideBar = () => {
+      store.dispatch('app/toggleSideBar')
+    }
+
+    const logout = async () => {
+      await store.dispatch('user/logout')
+      router.push(`/login?redirect=${route.fullPath}`)
+    }
+
+    return {
+      toggleSideBar,
+      logout,
+    }
+  },
+})
+</script>
+<style lang="scss">
+.navbar {
+  .avatar-container {
+    margin-right: 30px;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .navbar {
   height: 50px;
@@ -114,8 +129,6 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
-
       .avatar-wrapper {
         margin-top: 5px;
         position: relative;
@@ -139,3 +152,4 @@ export default {
   }
 }
 </style>
+//已完成 这里去掉了搜索组件，后面全部完成再说
