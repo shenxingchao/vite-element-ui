@@ -13,9 +13,11 @@ import './styles/index.scss'
 //引入svg
 import SvgPlugin from '@/components/SvgIcon'
 
+//引入mock.js 模拟数据 开启这里 使用moke/index.js文件拦截
+import './mock'
+
 //App对象
 const app = createApp(App)
-
 //使用状态
 app.use(store)
 //使用路由

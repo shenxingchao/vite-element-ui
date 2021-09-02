@@ -29,10 +29,18 @@
 </template>
 <script>
 import { defineComponent, reactive, toRefs, ref, nextTick } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   components: {},
   setup() {
+    //store
+    const store = useStore()
+
+    //router
+    const router = useRouter()
+
     //数据对象
     let data = reactive({
       loginForm: {
@@ -81,15 +89,15 @@ export default defineComponent({
     const handleLogin = () => {
       loginFormRef.value.validate((valid) => {
         if (valid) {
-          this.loading = true
-          this.$store
-            .dispatch('user/login', this.loginForm)
+          data.loading = true
+          store
+            .dispatch('user/login', data.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || '/' })
-              this.loading = false
+              router.push({ path: data.redirect || '/' })
+              data.loading = false
             })
             .catch(() => {
-              this.loading = false
+              data.loading = false
             })
         } else {
           console.log('error submit!!')
@@ -221,3 +229,4 @@ $dark_gray: #889aa4;
   }
 }
 </style>
+// 已完成
