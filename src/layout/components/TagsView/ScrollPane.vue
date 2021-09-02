@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
+  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.prevent="handleScroll">
     <slot />
   </el-scrollbar>
 </template>
@@ -11,13 +11,13 @@ export default {
   name: 'ScrollPane',
   data() {
     return {
-      left: 0
+      left: 0,
     }
   },
   computed: {
     scrollWrapper() {
       return this.$refs.scrollContainer.$refs.wrap
-    }
+    },
   },
   mounted() {
     this.scrollWrapper.addEventListener('scroll', this.emitScroll, true)
@@ -55,7 +55,7 @@ export default {
         $scrollWrapper.scrollLeft = $scrollWrapper.scrollWidth - $containerWidth
       } else {
         // find preTag and nextTag
-        const currentIndex = tagList.findIndex(item => item === currentTag)
+        const currentIndex = tagList.findIndex((item) => item === currentTag)
         const prevTag = tagList[currentIndex - 1]
         const nextTag = tagList[currentIndex + 1]
 
@@ -76,8 +76,8 @@ export default {
           $scrollWrapper.scrollLeft = beforePrevTagOffsetLeft
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -87,7 +87,7 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-  ::v-deep {
+  :deep {
     .el-scrollbar__bar {
       bottom: 0px;
     }

@@ -13,6 +13,8 @@ import './styles/index.scss'
 //引入svg
 import SvgPlugin from '@/components/SvgIcon'
 
+// permission control
+import '@/permission'
 //引入mock.js 模拟数据 开启这里 使用moke/index.js文件拦截
 import './mock'
 
