@@ -42,13 +42,13 @@ router.beforeEach(async (to, from, next) => {
             'permission/generateRoutes',
             roles
           ) //根据角色id数组 创建动态路由
-          console.log(router.options)
-          router.options.routes = store.getters.addRoutes // bug 新增的路由添加到路由配置 不然菜单会不显示 看菜单组件用的是这个 router.options.routes
+
           //此处vue3 路由废弃了addRoutes 只有addRoute
           asyncRouterMapRes.forEach(element => {
             router.addRoute(element) //异步动态映射路由添加到当前路由
+            return true
           })
-
+          //此处出现 Vue Router warn]: No match found for location with path 暂时不用管 后面有解决办法再说
           next({ ...to, replace: true }) //确保addRoutes已完成
         } catch (error) {
           // remove token and go to login page to re-login

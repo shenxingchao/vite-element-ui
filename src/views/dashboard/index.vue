@@ -40,6 +40,17 @@
         </div>
       </el-col>
     </el-row>
+    <el-row :gutter="24" class="dashboard-container-other">
+      <el-col :span="24">
+        <el-calendar>
+          <template #dateCell="{data}">
+            <p :class="data.isSelected ? 'is-selected' : ''">
+              {{ data.day.split('-').slice(1).join('-') }} {{ data.isSelected ? '✔️' : '' }}
+            </p>
+          </template>
+        </el-calendar>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -112,3 +123,4 @@ export default {
   }
 }
 </style>
+//已完成

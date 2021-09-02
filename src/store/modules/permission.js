@@ -43,10 +43,10 @@ const actions = {
       asyncRouterMap = []
       getPermissionRouter({ roles: roles }).then(res => {
         asyncRouterMap = res.data.concat({
-          path: '*',
-          redirect: '/404',
+          path: '/:pathMatch(.*)',
+          component: () => import('/src/views/404.vue'),
           hidden: true
-        }) //404 must be put end
+        }) // look https://next.router.vuejs.org/zh/guide/essentials/dynamic-matching.html#%E6%8D%95%E8%8E%B7%E6%89%80%E6%9C%89%E8%B7%AF%E7%94%B1%E6%88%96-404-not-found-%E8%B7%AF%E7%94%B1
         // 组建映射
         const asyncRouterMapRes = routerMapComponet(asyncRouterMap)
         commit('SET_ROUTES', asyncRouterMapRes)
