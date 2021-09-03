@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, reactive, toRefs } from 'vue'
 // doc: https://panjiachen.github.io/vue-element-admin-site/feature/component/svg-icon.html#usage
 import { isExternal as isExternalFn } from '@/utils/validate'
 
@@ -23,22 +23,25 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const isExternal = computed(() => isExternalFn(props.iconClass))
-    const iconName = computed(() => `#icon-${props.iconClass}`)
-    const svgClass = computed(() => {
-      if (props.className) {
-        return 'svg-icon ' + props.className
-      } else {
-        return 'svg-icon'
-      }
+    const set = reactive({
+      isExternal: computed(() => isExternalFn(props.iconClass)),
+      iconName: computed(() => `#icon-${props.iconClass}`),
+      svgClass: computed(() => {
+        if (props.className) {
+          return 'svg-icon ' + props.className
+        } else {
+          return 'svg-icon'
+        }
+      }),
+      styleExternalIcon: computed(() => {
+        return {
+          mask: `url(${props.iconClass}) no-repeat 50% 50%`,
+          '-webkit-mask': `url(${props.iconClass}) no-repeat 50% 50%`,
+        }
+      }),
     })
-    const styleExternalIcon = computed(() => {
-      return {
-        mask: `url(${props.iconClass}) no-repeat 50% 50%`,
-        '-webkit-mask': `url(${props.iconClass}) no-repeat 50% 50%`,
-      }
-    })
-    return { props, isExternal, iconName, svgClass, styleExternalIcon }
+
+    return { props, ...toRefs(set) }
   },
 })
 </script>

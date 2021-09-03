@@ -1,26 +1,45 @@
 <template>
   <section class="app-main">
-    <transition name="fade-transform" mode="out-in">
-      <keep-alive :include="cachedViews">
-        <router-view :key="key" />
-      </keep-alive>
-    </transition>
+    <router-view :key="key" v-slot="{ Component }">
+      <transition name="fade-transform" mode="out-in">
+        <keep-alive :include="cachedViews">
+          <component :is="Component" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </section>
 </template>
 
 <script>
-export default {
+import { computed, defineComponent, reactive, toRefs } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
+
+export default defineComponent({
   name: 'AppMain',
-  computed: {
-    cachedViews() {
-      return this.$store.state.tagsView.cachedViews
-    },
-    key() {
-      return this.$route.path
+  components: {},
+  setup() {
+    const $store = useStore()
+
+    //定义router
+    const $route = useRoute()
+
+    const set = reactive({
+      cachedViews: computed(() => {
+        return $store.state.tagsView.cachedViews
+      }),
+      key: computed(() => {
+        return $route.path
+      }),
+    })
+
+    return {
+      ...toRefs(set),
     }
-  }
-}
+  },
+})
 </script>
+
 
 <style lang="scss" scoped>
 .app-main {
@@ -55,3 +74,4 @@ export default {
   }
 }
 </style>
+//已完成
