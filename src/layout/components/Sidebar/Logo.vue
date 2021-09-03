@@ -1,6 +1,8 @@
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
-    <transition name="sidebarLogoFade">
+    <transition name="mode-fade" mode="out-in">
+      <!-- 使用过度模式 当前元素先进行过渡，完成之后新元素过渡进入
+      look at https://vue3js.cn/docs/zh/guide/transitions-enterleave.html#%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1 -->
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
         <h1 v-else class="sidebar-title">{{ title }} </h1>
@@ -39,12 +41,13 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.sidebarLogoFade-enter-active {
-  transition: opacity 1.5s;
+.mode-fade-enter-active,
+.mode-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
-.sidebarLogoFade-enter,
-.sidebarLogoFade-leave-to {
+.mode-fade-enter-from,
+.mode-fade-leave-to {
   opacity: 0;
 }
 
