@@ -3,21 +3,21 @@
 /* fade */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.28s;
+  transition: opacity 0.5s ease;
 }
 
-.fade-enter,
-.fade-leave-active {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all 0.5s;
+  transition: all 10s ease;
 }
 
-.fade-transform-enter {
+.fade-transform-enter-form {
   opacity: 0;
   transform: translateX(-30px);
 }
