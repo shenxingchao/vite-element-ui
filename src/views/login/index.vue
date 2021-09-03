@@ -28,9 +28,9 @@
   </div>
 </template>
 <script>
-import { defineComponent, reactive, toRefs, ref, nextTick } from 'vue'
+import { defineComponent, reactive, toRefs, ref, nextTick, watch } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   components: {},
@@ -40,6 +40,7 @@ export default defineComponent({
 
     //router
     const $router = useRouter()
+    const $route = useRoute()
 
     //数据对象
     let data = reactive({
@@ -71,6 +72,16 @@ export default defineComponent({
     //refs dom对象
     const passwordRef = ref(null)
     const loginFormRef = ref(null)
+
+    watch(
+      $route,
+      (route) => {
+        data.redirect = route.query && route.query.redirect
+      },
+      {
+        immediate: true,
+      }
+    )
 
     //方法
     //显示密码

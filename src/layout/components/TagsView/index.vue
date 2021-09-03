@@ -1,7 +1,7 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
     <el-scrollbar ref="scrollContainer" class="scroll-container" wrap-class="tags-view-wrapper" @scroll="handleScroll"
-                  @wheel.prevent="handleScrollBar" :tagRefList="tagRefList">
+                  @wheel.prevent="handleScrollBar">
       <router-link v-for="tag in visitedViews" :ref="setTagRef" :key="tag.path" :class="isActive(tag)?'active':''"
                    :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" tag="span" class="tags-view-item"
                    @click.middle="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent="openMenu(tag,$event)">
@@ -301,7 +301,6 @@ export default defineComponent({
 
     return {
       ...toRefs(data),
-      tagRefList,
       setTagRef,
       ...toRefs(set),
       scrollContainer,
