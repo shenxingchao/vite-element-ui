@@ -15,11 +15,20 @@
   </div>
 </template>
 <script>
-import { computed, defineComponent, reactive, toRefs } from 'vue'
+import {
+  computed,
+  defineComponent,
+  reactive,
+  toRefs,
+  watch,
+  onMounted,
+  onBeforeMount,
+  onBeforeUnmount,
+} from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 import RightPanel from '@/components/RightPanel/index.vue'
 import { Sidebar, Navbar, TagsView, AppMain, Settings } from './components'
-import ResizeMixin from './mixin/ResizeHandler'
-import { mapState, useStore } from 'vuex'
 
 export default defineComponent({
   name: 'Layout',
@@ -29,9 +38,14 @@ export default defineComponent({
     TagsView,
     AppMain,
   },
-  // mixins: [ResizeMixin],
   setup() {
     const $store = useStore()
+
+    //定义router
+    const $route = useRoute()
+
+    const { body } = document
+    const WIDTH = 992 // refer to Bootstrap's responsive design
 
     const set = reactive({
       sidebar: computed(() => {
@@ -59,8 +73,46 @@ export default defineComponent({
       }),
     })
 
+    watch($route, () => {
+      if (set.device === 'mobile' && set.sidebar.opened) {
+        $store.dispatch('app/closeSideBar', { withoutAnimation: false })
+      }
+    })
+
+    onMounted(() => {
+      const isMobile = _isMobile()
+      if (isMobile) {
+        $store.dispatch('app/toggleDevice', 'mobile')
+        $store.dispatch('app/closeSideBar', { withoutAnimation: true })
+      }
+    })
+
+    onBeforeMount(() => {
+      window.addEventListener('resize', _resizeHandler)
+    })
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', _resizeHandler)
+    })
+
     const handleClickOutside = () => {
       $store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    }
+
+    const _isMobile = () => {
+      const rect = body.getBoundingClientRect()
+      return rect.width - 1 < WIDTH
+    }
+
+    const _resizeHandler = () => {
+      if (!document.hidden) {
+        const isMobile = _isMobile()
+        $store.dispatch('app/toggleDevice', isMobile ? 'mobile' : 'desktop')
+
+        if (isMobile) {
+          $store.dispatch('app/closeSideBar', { withoutAnimation: true })
+        }
+      }
     }
 
     return { ...toRefs(set), handleClickOutside }
