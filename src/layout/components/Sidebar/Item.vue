@@ -1,9 +1,7 @@
 <template>
   <i v-if="icon.includes('el-icon')" :class="icon + 'sub-el-icon'" />
   <svg-icon v-else :icon-class="icon" />
-  <!-- bug -->
-  <slot name='title'><span>{title}</span></slot>
-  <!-- bug -->
+  <span>{{title}}</span>
 </template>
 <script>
 import { defineComponent } from 'vue'
@@ -35,4 +33,4 @@ export default defineComponent({
   height: 1em;
 }
 </style>
-
+//已完成

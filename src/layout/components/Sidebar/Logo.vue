@@ -12,24 +12,30 @@
     </transition>
   </div>
 </template>
-
 <script>
-export default {
+import { defineComponent, reactive, toRefs } from 'vue'
+
+export default defineComponent({
   name: 'SidebarLogo',
+  components: {},
   props: {
     collapse: {
       type: Boolean,
-      required: true
+      required: true,
+    },
+  },
+  setup() {
+    //数据对象
+    let data = reactive({
+      title: '后台管理系统',
+      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png',
+    })
+
+    return {
+      ...toRefs(data),
     }
   },
-  data() {
-    return {
-      title: '后台管理系统',
-      logo:
-        'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
-    }
-  }
-}
+})
 </script>
 
 <style lang="scss" scoped>

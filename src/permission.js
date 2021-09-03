@@ -49,6 +49,7 @@ router.beforeEach(async (to, from, next) => {
             return true
           })
           //此处出现 Vue Router warn]: No match found for location with path 暂时不用管 后面有解决办法再说
+          router.options.routes = store.getters.addRoutes // bug 新增的路由添加到路由配置 不然菜单会不显示 看菜单组件用的是这个 router.options.routes
           next({ ...to, replace: true }) //确保addRoutes已完成
         } catch (error) {
           // remove token and go to login page to re-login
