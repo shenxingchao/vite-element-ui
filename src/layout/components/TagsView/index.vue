@@ -1,7 +1,7 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container tags-view-wrapper"
-                  @scroll="handleScroll" @wheel.prevent="handleScrollBar" :tagRefList="tagRefList">
+    <el-scrollbar ref="scrollContainer" class="scroll-container" wrap-class="tags-view-wrapper" @scroll="handleScroll"
+                  @wheel.prevent="handleScrollBar" :tagRefList="tagRefList">
       <router-link v-for="tag in visitedViews" :ref="setTagRef" :key="tag.path" :class="isActive(tag)?'active':''"
                    :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" tag="span" class="tags-view-item"
                    @click.middle="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent="openMenu(tag,$event)">
@@ -35,14 +35,13 @@ import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import path from 'path-browserify'
 
-const tagAndTagSpacing = 4 // tagAndTagSpacing
-
 export default defineComponent({
   components: {},
   setup() {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
+    const { ctx } = getCurrentInstance()
 
+    //store
     const $store = useStore()
 
     //定义router
@@ -65,14 +64,17 @@ export default defineComponent({
       tagRefList.push(el)
     }
 
+    const tagAndTagSpacing = 4 // tagAndTagSpacing
+
     const scrollContainer = ref(null)
 
-    const visitedViews = computed(() => {
-      return $store.state.tagsView.visitedViews
-    })
-
-    const routes = computed(() => {
-      return $store.state.permission.routes
+    const set = reactive({
+      visitedViews: computed(() => {
+        return $store.state.tagsView.visitedViews
+      }),
+      routes: computed(() => {
+        return $store.state.permission.routes
+      }),
     })
 
     const scrollWrapper = computed(() => {
@@ -84,13 +86,16 @@ export default defineComponent({
       moveToCurrentTag()
     })
 
-    watch(data.visible, (value) => {
-      if (value) {
-        document.body.addEventListener('click', closeMenu)
-      } else {
-        document.body.removeEventListener('click', closeMenu)
+    watch(
+      () => data.visible,
+      (value) => {
+        if (value) {
+          document.body.addEventListener('click', closeMenu)
+        } else {
+          document.body.removeEventListener('click', closeMenu)
+        }
       }
-    })
+    )
 
     onMounted(() => {
       initTags()
@@ -133,7 +138,7 @@ export default defineComponent({
     }
 
     const initTags = () => {
-      const affixTags = (data.affixTags = filterAffixTags(routes.value))
+      const affixTags = (data.affixTags = filterAffixTags(set.routes))
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {
@@ -219,8 +224,8 @@ export default defineComponent({
 
     const openMenu = (tag, e) => {
       const menuMinWidth = 105
-      const offsetLeft = internalInstance.vnode.el.getBoundingClientRect().left // container margin left
-      const offsetWidth = internalInstance.vnode.el.offsetWidth // container width
+      const offsetLeft = ctx.$el.getBoundingClientRect().left // container margin left
+      const offsetWidth = ctx.$el.offsetWidth // container width
       const maxLeft = offsetWidth - menuMinWidth // left boundary
       const left = e.clientX - offsetLeft + 15 // 15: margin right
 
@@ -250,7 +255,7 @@ export default defineComponent({
     }
 
     const moveToTarget = (currentTag) => {
-      const $container = scrollContainer.value
+      const $container = scrollContainer.value.$el
       const $containerWidth = $container.offsetWidth
       const $scrollWrapper = scrollWrapper.value
       const tagList = tagRefList
@@ -297,8 +302,8 @@ export default defineComponent({
       ...toRefs(data),
       tagRefList,
       setTagRef,
+      ...toRefs(set),
       scrollContainer,
-      visitedViews,
       isActive,
       isAffix,
       refreshSelectedTag,
