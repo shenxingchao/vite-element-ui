@@ -6,11 +6,10 @@ $subMenuActiveText: #ffffff; //https://github.com/ElemeFE/element/issues/12951
 $subMenuActiveBg: $theme;
 
 $menuBg: #20222a;
-$menuHover: #16191f;
 
 $subMenuBg: rgba(
   $color: #000000,
-  $alpha: 0.3
+  $alpha: 0.9
 );
 $subMenuHover: #001528;
 
@@ -24,7 +23,6 @@ $sideBarWidth: 210px;
   subMenuActiveText: $subMenuActiveText;
   subMenuActiveBg: $subMenuActiveBg;
   menuBg: $menuBg;
-  menuHover: $menuHover;
   subMenuBg: $subMenuBg;
   subMenuHover: $subMenuHover;
   sideBarWidth: $sideBarWidth;

@@ -88,53 +88,53 @@ let getPermissionRouter = Mock.mock({
           }
         }
       ]
+    },
+    {
+      path: '/article',
+      name: 'Article',
+      component: 'Layout',
+      redirect: '/article/article-list',
+      // redirect: 'noRedirect',
+      alwaysShow: true,
+      hidden: false,
+      meta: {
+        title: '文章管理',
+        icon: 'table'
+      },
+      children: [
+        {
+          path: 'article-list',
+          name: 'ArticleList',
+          component: 'ArticleList',
+          alwaysShow: false,
+          hidden: false,
+          meta: {
+            title: '文章列表',
+            icon: 'table'
+          }
+        },
+        {
+          path: 'article-add',
+          name: 'ArticleAdd',
+          alwaysShow: false,
+          hidden: true,
+          component: 'ArticleAdd',
+          meta: {
+            title: '文章添加'
+          }
+        },
+        {
+          path: 'article-edit',
+          name: 'ArticleEdit',
+          alwaysShow: false,
+          hidden: true,
+          component: 'ArticleEdit',
+          meta: {
+            title: '文章编辑'
+          }
+        }
+      ]
     }
-    // {
-    //   path: '/article',
-    //   name: 'Article',
-    //   component: 'Layout',
-    //   redirect: '/article/article-list',
-    //   // redirect: 'noRedirect',
-    //   alwaysShow: true,
-    //   hidden: false,
-    //   meta: {
-    //     title: '文章管理',
-    //     icon: 'table'
-    //   },
-    //   children: [
-    //     {
-    //       path: 'article-list',
-    //       name: 'ArticleList',
-    //       component: 'ArticleList',
-    //       alwaysShow: false,
-    //       hidden: false,
-    //       meta: {
-    //         title: '文章列表',
-    //         icon: 'table'
-    //       }
-    //     },
-    //     {
-    //       path: 'article-add',
-    //       name: 'ArticleAdd',
-    //       alwaysShow: false,
-    //       hidden: true,
-    //       component: 'ArticleAdd',
-    //       meta: {
-    //         title: '文章添加'
-    //       }
-    //     },
-    //     {
-    //       path: 'article-edit',
-    //       name: 'ArticleEdit',
-    //       alwaysShow: false,
-    //       hidden: true,
-    //       component: 'ArticleEdit',
-    //       meta: {
-    //         title: '文章编辑'
-    //       }
-    //     }
-    //   ]
-    // }
   ]
 })
 Mock.mock(/UserCenter\/getPermissionRouter/, 'post', () => {

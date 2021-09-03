@@ -17,7 +17,7 @@
       <template v-if="item.meta" #title>
         <i v-if="item.meta.icon.includes('el-icon')" :class="item.meta && item.meta.icon + 'sub-el-icon'" />
         <svg-icon v-else :icon-class="item.meta && item.meta.icon" />
-        <item :icon="item.meta && item.meta.icon" :title="item.meta.title" />
+        <span>{{item.meta.title}}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
                     :base-path="resolvePath(child.path)" class="nest-menu" />
