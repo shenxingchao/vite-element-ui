@@ -8,9 +8,9 @@
         <tags-view v-if="needTagsView" />
       </div>
       <app-main />
-      <!-- <right-panel v-if="showSettings">
+      <right-panel v-if="showSettings">
         <settings />
-      </right-panel> -->
+      </right-panel>
     </div>
   </div>
 </template>
@@ -37,6 +37,8 @@ export default defineComponent({
     Navbar,
     TagsView,
     AppMain,
+    RightPanel,
+    Settings,
   },
   setup() {
     const $store = useStore()
@@ -55,10 +57,10 @@ export default defineComponent({
         return $store.getters.device
       }),
       showSettings: computed(() => {
-        return $store.state.settings.showSettings
+        return $store.getters.showSettings
       }),
       needTagsView: computed(() => {
-        return $store.state.settings.tagsView
+        return $store.getters.tagsView
       }),
       fixedHeader: computed(() => {
         return $store.getters.fixedHeader

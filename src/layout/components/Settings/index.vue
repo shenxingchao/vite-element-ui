@@ -2,7 +2,6 @@
   <div class="drawer-container">
     <div>
       <h3 class="drawer-title">页面设置</h3>
-
       <div class="drawer-item">
         <span>标签页</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
@@ -23,47 +22,59 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {}
-  },
-  computed: {
-    fixedHeader: {
-      get() {
-        return this.$store.state.settings.fixedHeader
-      },
-      set(val) {
-        this.$store.dispatch('settings/changeSetting', {
-          key: 'fixedHeader',
-          value: val
-        })
-      }
-    },
-    tagsView: {
-      get() {
-        return this.$store.state.settings.tagsView
-      },
-      set(val) {
-        this.$store.dispatch('settings/changeSetting', {
-          key: 'tagsView',
-          value: val
-        })
-      }
-    },
-    sidebarLogo: {
-      get() {
-        return this.$store.state.settings.sidebarLogo
-      },
-      set(val) {
-        this.$store.dispatch('settings/changeSetting', {
-          key: 'sidebarLogo',
-          value: val
-        })
-      }
+import { computed, defineComponent, reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
+
+export default defineComponent({
+  components: {},
+  setup() {
+    const $store = useStore()
+
+    //数据对象
+    let data = reactive({})
+
+    const set = reactive({
+      fixedHeader: computed({
+        get() {
+          return $store.getters.fixedHeader
+        },
+        set(val) {
+          $store.dispatch('settings/changeSetting', {
+            key: 'fixedHeader',
+            value: val,
+          })
+        },
+      }),
+      tagsView: computed({
+        get() {
+          return $store.getters.tagsView
+        },
+        set(val) {
+          $store.dispatch('settings/changeSetting', {
+            key: 'tagsView',
+            value: val,
+          })
+        },
+      }),
+      sidebarLogo: computed({
+        get() {
+          return $store.getters.sidebarLogo
+        },
+        set(val) {
+          $store.dispatch('settings/changeSetting', {
+            key: 'sidebarLogo',
+            value: val,
+          })
+        },
+      }),
+    })
+
+    return {
+      ...toRefs(data),
+      ...toRefs(set),
     }
   },
-  methods: {}
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -91,3 +102,4 @@ export default {
   }
 }
 </style>
+//已完成

@@ -70,10 +70,10 @@ export default defineComponent({
 
     const set = reactive({
       visitedViews: computed(() => {
-        return $store.state.tagsView.visitedViews
+        return $store.getters.visitedViews
       }),
       routes: computed(() => {
-        return $store.state.permission.routes
+        return $store.getters.permission_routes
       }),
     })
 

@@ -2,9 +2,8 @@
   <div :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg"
-               :text-color="variables.menuText" :unique-opened="false" :active-text-color="variables.menuActiveText"
-               :collapse-transition="false" mode="vertical">
+      <el-menu :default-active="activeMenu" :collapse="isCollapse" :unique-opened="false" :collapse-transition="false"
+               mode="vertical">
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
@@ -17,7 +16,6 @@ import { useStore } from 'vuex'
 
 import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem.vue'
-import variables from '@/styles/variables.scss'
 
 export default defineComponent({
   components: { Logo, SidebarItem },
@@ -43,10 +41,7 @@ export default defineComponent({
         return path
       }),
       showLogo: computed(() => {
-        return $store.state.settings.sidebarLogo
-      }),
-      variables: computed(() => {
-        return variables
+        return $store.getters.sidebarLogo
       }),
       isCollapse: computed(() => {
         return !$store.getters.sidebar.opened

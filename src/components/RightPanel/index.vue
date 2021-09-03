@@ -2,7 +2,7 @@
   <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
     <div class="rightPanel-background" />
     <div class="rightPanel">
-      <div class="handle-button" :style="{'bottom':buttonBottom+'px','background-color':theme}" @click="show=!show">
+      <div class="handle-button" :style="{'bottom':buttonBottom+'px'}" @click="show=!show">
         <i :class="show?'el-icon-close':'el-icon-setting'" />
       </div>
       <div class="rightPanel-items">
@@ -13,67 +13,88 @@
 </template>
 
 <script>
+import {
+  defineComponent,
+  reactive,
+  toRefs,
+  ref,
+  onMounted,
+  onBeforeUnmount,
+  watch,
+} from 'vue'
+import { useStore } from 'vuex'
 import { addClass, removeClass } from '@/utils'
 
-export default {
+export default defineComponent({
   name: 'RightPanel',
+  components: {},
   props: {
     clickNotClose: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     buttonBottom: {
       default: 10,
-      type: Number
-    }
-  },
-  data() {
-    return {
-      show: false
-    }
-  },
-  computed: {
-    theme() {
-      return this.$store.state.settings.theme
-    }
-  },
-  watch: {
-    show(value) {
-      if (value && !this.clickNotClose) {
-        this.addEventClick()
-      }
-      if (value) {
-        addClass(document.body, 'showRightPanel')
-      } else {
-        removeClass(document.body, 'showRightPanel')
-      }
-    }
-  },
-  mounted() {
-    this.insertToBody()
-  },
-  beforeDestroy() {
-    const elx = this.$refs.rightPanel
-    elx.remove()
-  },
-  methods: {
-    addEventClick() {
-      window.addEventListener('click', this.closeSidebar)
+      type: Number,
     },
-    closeSidebar(evt) {
+  },
+  setup(props) {
+    const $store = useStore()
+
+    //数据对象
+    let data = reactive({
+      show: false,
+    })
+
+    //ref
+    let rightPanel = ref(null)
+
+    watch(
+      () => data.show,
+      (value) => {
+        if (value && !props.clickNotClose) {
+          addEventClick()
+        }
+        if (value) {
+          addClass(document.body, 'showRightPanel')
+        } else {
+          removeClass(document.body, 'showRightPanel')
+        }
+      }
+    )
+
+    onMounted(() => {
+      insertToBody()
+    })
+
+    onBeforeUnmount(() => {
+      rightPanel.value.remove()
+    })
+
+    const addEventClick = () => {
+      window.addEventListener('click', closeSidebar)
+    }
+
+    const closeSidebar = (evt) => {
       const parent = evt.target.closest('.rightPanel')
       if (!parent) {
-        this.show = false
-        window.removeEventListener('click', this.closeSidebar)
+        data.show = false
+        window.removeEventListener('click', closeSidebar)
       }
-    },
-    insertToBody() {
-      const elx = this.$refs.rightPanel
+    }
+
+    const insertToBody = () => {
+      const elx = rightPanel.value
       const body = document.querySelector('body')
       body.insertBefore(elx, body.firstChild)
     }
-  }
-}
+
+    return {
+      ...toRefs(data),
+      rightPanel,
+    }
+  },
+})
 </script>
 
 <style>
@@ -137,9 +158,11 @@ export default {
   cursor: pointer;
   color: #fff;
   line-height: 48px;
+  background: $theme;
   i {
     font-size: 24px;
     line-height: 48px;
   }
 }
 </style>
+//已完成
