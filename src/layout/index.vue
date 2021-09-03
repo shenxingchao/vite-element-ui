@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import RightPanel from '@/components/RightPanel/index.vue'
 import { Sidebar, Navbar, TagsView, AppMain, Settings } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
@@ -29,17 +29,27 @@ export default defineComponent({
     TagsView,
     AppMain,
   },
-  computed: {
-    ...mapState({
-      sidebar: (state) => state.app.sidebar,
-      device: (state) => state.app.device,
-      showSettings: (state) => state.settings.showSettings,
-      needTagsView: (state) => state.settings.tagsView,
-      fixedHeader: (state) => state.settings.fixedHeader,
-    }),
-  },
+
   setup() {
-    return {}
+    const set = reactive({
+      ...mapState({
+        sidebar: (state) => state.app.sidebar,
+        device: (state) => state.app.device,
+        showSettings: (state) => state.settings.showSettings,
+        needTagsView: (state) => state.settings.tagsView,
+        fixedHeader: (state) => state.settings.fixedHeader,
+      }),
+    })
+
+    const classObj = () => {
+      return {
+        hideSidebar: !set.sidebar.opened,
+        openSidebar: set.sidebar.opened,
+        withoutAnimation: set.sidebar.withoutAnimation,
+        mobile: set.device === 'mobile',
+      }
+    }
+    return { ...toRefs(set), classObj }
   },
 })
 </script>

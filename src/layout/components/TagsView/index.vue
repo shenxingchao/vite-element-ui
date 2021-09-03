@@ -159,7 +159,8 @@ export default defineComponent({
       const tags = tagRefList
       nextTick(() => {
         for (const tag of tags) {
-          if (tag.to.path === $route.path) {
+          if (tag && tag.to.path === $route.path) {
+            //fix tag is null
             moveToTarget(tag)
             // when query is different then update
             if (tag.to.fullPath !== $route.fullPath) {

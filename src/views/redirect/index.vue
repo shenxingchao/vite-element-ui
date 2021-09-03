@@ -15,7 +15,7 @@ export default defineComponent({
     $router.replace({ path: '/' + path, query })
 
     return () => {
-      return h()
+      return h('div')
     }
   },
 })

@@ -2,10 +2,10 @@
   <div class="wscn-http404-container">
     <div class="wscn-http404">
       <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404" />
-        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404" />
-        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404" />
-        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404" />
+        <img class="pic-404__parent" :src="error_404" alt="404" />
+        <img class="pic-404__child left" :src="error_cloud" alt="404" />
+        <img class="pic-404__child mid" :src="error_cloud" alt="404" />
+        <img class="pic-404__child right" :src="error_cloud" alt="404" />
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">OOPS!</div>
@@ -22,14 +22,22 @@
 </template>
 
 <script>
-export default {
+import { defineComponent, ref } from 'vue'
+import image1 from '@/assets/404_images/404.png'
+import image2 from '@/assets/404_images/404_cloud.png'
+
+export default defineComponent({
   name: 'Page404',
-  // computed: {
-  //   // message() {
-  //   //   return 'The webmaster said that you can not enter this page...'
-  //   // }
-  // }
-}
+  components: {},
+  setup() {
+    let error_404 = ref(image1)
+    let error_cloud = ref(image2)
+    return {
+      error_404,
+      error_cloud,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -226,3 +234,4 @@ export default {
   }
 }
 </style>
+//已完成
