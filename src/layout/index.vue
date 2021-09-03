@@ -15,11 +15,11 @@
   </div>
 </template>
 <script>
-import { defineComponent, reactive, toRefs } from 'vue'
+import { computed, defineComponent, reactive, toRefs } from 'vue'
 import RightPanel from '@/components/RightPanel/index.vue'
 import { Sidebar, Navbar, TagsView, AppMain, Settings } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import { mapState, useStore } from 'vuex'
 
 export default defineComponent({
   name: 'Layout',
@@ -29,27 +29,41 @@ export default defineComponent({
     TagsView,
     AppMain,
   },
-
+  // mixins: [ResizeMixin],
   setup() {
+    const $store = useStore()
+
     const set = reactive({
-      ...mapState({
-        sidebar: (state) => state.app.sidebar,
-        device: (state) => state.app.device,
-        showSettings: (state) => state.settings.showSettings,
-        needTagsView: (state) => state.settings.tagsView,
-        fixedHeader: (state) => state.settings.fixedHeader,
+      sidebar: computed(() => {
+        return $store.getters.sidebar
+      }),
+      device: computed(() => {
+        return $store.getters.device
+      }),
+      showSettings: computed(() => {
+        return $store.state.settings.showSettings
+      }),
+      needTagsView: computed(() => {
+        return $store.state.settings.tagsView
+      }),
+      fixedHeader: computed(() => {
+        return $store.getters.fixedHeader
+      }),
+      classObj: computed(() => {
+        return {
+          hideSidebar: !set.sidebar.opened,
+          openSidebar: set.sidebar.opened,
+          withoutAnimation: set.sidebar.withoutAnimation,
+          mobile: set.device === 'mobile',
+        }
       }),
     })
 
-    const classObj = () => {
-      return {
-        hideSidebar: !set.sidebar.opened,
-        openSidebar: set.sidebar.opened,
-        withoutAnimation: set.sidebar.withoutAnimation,
-        mobile: set.device === 'mobile',
-      }
+    const handleClickOutside = () => {
+      $store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
-    return { ...toRefs(set), classObj }
+
+    return { ...toRefs(set), handleClickOutside }
   },
 })
 </script>
