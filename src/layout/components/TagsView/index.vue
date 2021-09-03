@@ -320,18 +320,16 @@ export default defineComponent({
 
 
 <style lang="scss" scoped>
-.scroll-container {
+:deep(.scroll-container) {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
   width: 100%;
-  :deep {
-    .el-scrollbar__bar {
-      bottom: 0px;
-    }
-    .el-scrollbar__wrap {
-      height: 56px;
-    }
+  .el-scrollbar__bar {
+    bottom: 0px;
+  }
+  .el-scrollbar__wrap {
+    height: 56px;
   }
 }
 .tags-view-container {
@@ -428,3 +426,4 @@ export default defineComponent({
   }
 }
 </style>
+//已完成

@@ -36,10 +36,10 @@ export default defineComponent({
   components: {},
   setup() {
     //store
-    const store = useStore()
+    const $store = useStore()
 
     //router
-    const router = useRouter()
+    const $router = useRouter()
 
     //数据对象
     let data = reactive({
@@ -90,10 +90,10 @@ export default defineComponent({
       loginFormRef.value.validate((valid) => {
         if (valid) {
           data.loading = true
-          store
+          $store
             .dispatch('user/login', data.loginForm)
             .then(() => {
-              router.push({ path: data.redirect || '/' })
+              $router.push({ path: data.redirect || '/' })
               data.loading = false
             })
             .catch(() => {

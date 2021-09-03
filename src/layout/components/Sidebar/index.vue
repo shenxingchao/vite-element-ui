@@ -22,19 +22,19 @@ import variables from '@/styles/variables.scss'
 export default defineComponent({
   components: { Logo, SidebarItem },
   setup() {
-    const store = useStore()
+    const $store = useStore()
 
     //定义router
-    const router = useRouter()
-    const route = useRoute()
+    const $router = useRouter()
+    const $route = useRoute()
 
     const routes = computed(() => {
       // console.log(router.options.routes)
-      return router.options.routes
+      return $router.options.routes
     })
 
     const activeMenu = computed(() => {
-      const _route = route
+      const _route = $route
       const { meta, path } = _route
       // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
@@ -44,7 +44,7 @@ export default defineComponent({
     })
 
     const showLogo = computed(() => {
-      return store.state.settings.sidebarLogo
+      return $store.state.settings.sidebarLogo
     })
 
     const variables = computed(() => {
@@ -52,12 +52,10 @@ export default defineComponent({
     })
 
     const isCollapse = computed(() => {
-      return !store.getters.sidebar.opened
+      return !$store.getters.sidebar.opened
     })
 
     return {
-      router,
-      route,
       routes,
       activeMenu,
       showLogo,

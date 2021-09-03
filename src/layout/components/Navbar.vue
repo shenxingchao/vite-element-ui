@@ -47,19 +47,19 @@ export default defineComponent({
     ...mapGetters(['sidebar', 'avatar', 'device']),
   },
   setup() {
-    const store = useStore()
+    const $store = useStore()
 
     //定义router
-    const router = useRouter()
+    const $router = useRouter()
     const route = useRoute()
 
     const toggleSideBar = () => {
-      store.dispatch('app/toggleSideBar')
+      $store.dispatch('app/toggleSideBar')
     }
 
     const logout = async () => {
-      await store.dispatch('user/logout')
-      router.push(`/login?redirect=${route.fullPath}`)
+      await $store.dispatch('user/logout')
+      $router.push(`/login?redirect=${route.fullPath}`)
     }
 
     return {
