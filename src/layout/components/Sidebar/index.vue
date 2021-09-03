@@ -54,7 +54,6 @@ export default defineComponent({
     })
 
     return {
-      routes,
       ...toRefs(set),
     }
   },
