@@ -26,7 +26,7 @@ export default defineComponent({
   },
 })
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .sub-el-icon {
   color: currentColor;
   width: 1em;

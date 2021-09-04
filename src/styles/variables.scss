@@ -1,16 +1,51 @@
+// 变量定义
+$theme: #409eff;
+$deep-theme: #277bcf;
+$h1c: #333333;
+$h2c: #555555;
+$h3c: #777777;
+$border: 1px solid #ececec;
+
 // sidebar
 $menuText: #bfcbd9;
 $menuActiveText: #ffffff;
 $menuActiveBg: $theme;
 $subMenuActiveText: #ffffff; //https://github.com/ElemeFE/element/issues/12951
 $subMenuActiveBg: $theme;
-
 $menuBg: #20222a;
-
 $subMenuBg: rgba(
   $color: #000000,
   $alpha: 0.9
 );
 $subMenuHover: #001528;
-
 $sideBarWidth: 210px;
+
+//mixin
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

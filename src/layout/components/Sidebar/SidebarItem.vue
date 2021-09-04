@@ -13,7 +13,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template v-if="item.meta" #title>
         <i v-if="item.meta.icon.includes('el-icon')" :class="item.meta && item.meta.icon + 'sub-el-icon'" />
         <svg-icon v-else :icon-class="item.meta && item.meta.icon" />
@@ -21,7 +21,7 @@
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
                     :base-path="resolvePath(child.path)" class="nest-menu" />
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 <script>

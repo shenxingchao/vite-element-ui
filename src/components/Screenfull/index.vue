@@ -72,7 +72,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .screenfull-svg {
   display: inline-block;
   cursor: pointer;

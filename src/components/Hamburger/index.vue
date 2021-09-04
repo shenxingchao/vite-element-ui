@@ -36,7 +36,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .hamburger {
   display: inline-block;
   vertical-align: middle;
