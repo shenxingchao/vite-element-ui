@@ -21,7 +21,7 @@ import {
   toRefs,
   watch,
 } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import Fuse from 'fuse.js'
 import path from 'path-browserify'
@@ -34,7 +34,6 @@ export default defineComponent({
 
     //定义router
     const $router = useRouter()
-    const $route = useRoute()
 
     //数据对象
     let data = reactive({
@@ -209,7 +208,7 @@ export default defineComponent({
       padding-left: 0;
       padding-right: 0;
       box-shadow: none !important;
-      border-bottom: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9 !important;
       vertical-align: middle;
     }
   }
