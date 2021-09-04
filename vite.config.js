@@ -39,7 +39,7 @@ export default defineConfig(({ command, mode }) => {
     //共享配置
     base: './', //开发环境或者生产环境的根路径，后面改掉
     build: {
-      minify: false, //不压缩查看问题 打包出来的css文件 @charset "UTF-8"; 重复添加
+      minify: true, //打包文件是否压缩  打包出来的css文件 @charset "UTF-8"; 重复添加  原因'node_modules/element-plus/dist/index.css' 里添加了@charset "UTF-8"; 强迫症可以去掉在打包
       target: 'es2015',
       sourcemap: false, //构建后是否生成 source map 文件
       brotliSize: false, // 启用/禁用 brotli 压缩大小报告。压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
