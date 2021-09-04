@@ -4,6 +4,7 @@
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device!=='mobile'">
+        <search id="header-search" class="right-menu-item" />
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
       <el-dropdown class="avatar-container" trigger="click">
@@ -35,6 +36,7 @@ import { mapGetters, useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
+import Search from '@/components/HeaderSearch/index.vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
@@ -42,6 +44,7 @@ export default defineComponent({
     Hamburger,
     Breadcrumb,
     Screenfull,
+    Search,
   },
   computed: {
     ...mapGetters(['sidebar', 'avatar', 'device']),
