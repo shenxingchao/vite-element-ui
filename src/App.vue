@@ -1,16 +1,23 @@
 <template>
-  <router-view />
+  <el-config-provider :locale="locale">
+    <router-view />
+  </el-config-provider>
 </template>
 <script>
 import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
+//多语言
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 export default defineComponent({
-  components: {},
+  components: {
+    [ElConfigProvider.name]: ElConfigProvider, //多语言组件
+  },
   setup() {
-    const router = useRouter()
+    //设置多语言
+    const locale = zhCn
 
-    return { router }
+    return { locale }
   },
 })
 </script>
