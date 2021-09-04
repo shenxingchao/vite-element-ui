@@ -1,6 +1,6 @@
 <template>
   <section class="app-main">
-    <router-view :key="key" v-slot="{ Component }">
+    <router-view v-slot="{ Component }">
       <transition appear name="fade-slide" mode="out-in">
         <keep-alive :include="cachedViews">
           <component :is="Component" />
@@ -12,7 +12,6 @@
 
 <script>
 import { computed, defineComponent, reactive, toRefs } from 'vue'
-import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default defineComponent({
@@ -21,15 +20,9 @@ export default defineComponent({
   setup() {
     const $store = useStore()
 
-    //定义router
-    const $route = useRoute()
-
     const set = reactive({
       cachedViews: computed(() => {
         return $store.getters.cachedViews
-      }),
-      key: computed(() => {
-        return $route.path
       }),
     })
 
