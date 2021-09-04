@@ -76,7 +76,7 @@
       background-color: $menuBg;
       &:hover {
         color: $menuActiveText !important;
-        background-color: $subMenuBg !important; //不想变色
+        background-color: $subMenuBg !important;
         position: relative;
 
         &::before {
