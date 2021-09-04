@@ -8,8 +8,6 @@ import 'normalize.css/normalize.css'
 //引入element plus
 import ElementPlus from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
-// global css
-import './styles/index.scss'
 //引入svg
 import SvgPlugin from '@/components/SvgIcon'
 

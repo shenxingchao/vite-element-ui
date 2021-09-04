@@ -5,12 +5,3 @@ $h1c: #333333;
 $h2c: #555555;
 $h3c: #777777;
 $border: 1px solid #ececec;
-
-:export {
-  theme: $theme;
-  deep-theme: $deep-theme;
-  h1c: $h1c;
-  h2c: $h2c;
-  h3c: $h3c;
-  border: $border;
-}

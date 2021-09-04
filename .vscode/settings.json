@@ -45,6 +45,5 @@
   "prettier.arrowParens": "avoid", //  (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
   "prettier.bracketSpacing": true, // 在对象，数组括号与文字之间加空格 "{ foo: bar }"
   "prettier.jsxBracketSameLine": false, // 在jsx中把'>' 单独放一行
-  "prettier.trailingComma": "none",
-  "prettier.disableLanguages": ["vue"] // 不格式化vue文件
+  "prettier.trailingComma": "none"
 }

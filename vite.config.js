@@ -23,10 +23,13 @@ export default defineConfig(({ command, mode }) => {
     },
     //配置全局css https://cn.vitejs.dev/config/#css-preprocessoroptions
     css: {
+      postcss: {
+        plugins: [require('autoprefixer')]
+      },
       preprocessorOptions: {
         scss: {
           //注意这里sass变成了scss
-          additionalData: `@import "@/styles/common.scss";`
+          additionalData: `@import "@/styles/index.scss";`
         }
       }
     },
