@@ -1,5 +1,7 @@
 <template>
-  list
+  <div>
+    123
+  </div>
 </template>
 <script>
 import { defineComponent } from 'vue'
