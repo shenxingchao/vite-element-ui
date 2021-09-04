@@ -8,11 +8,11 @@ import 'normalize.css/normalize.css'
 //引入element plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 // index scss
 import './styles/index.scss'
 //引入svg
 import SvgPlugin from '@/components/SvgIcon'
-
 // permission control
 import '@/permission'
 //引入mock.js 模拟数据 开启这里 使用moke/index.js文件拦截
@@ -25,7 +25,9 @@ app.use(store)
 //使用路由
 app.use(router)
 //使用element plus
-app.use(ElementPlus)
+app.use(ElementPlus, {
+  locale: zhCn
+})
 //使用svg
 app.use(SvgPlugin, {
   imports: []
