@@ -146,8 +146,7 @@ let fileUpload = Mock.mock({
   message: 'success',
   code: 20000,
   data: {
-    imgUrl:
-      'https://iph.href.lu/400x300?text=%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9E%E7%9A%84%E5%9B%BE%E7%89%87&fg=ffffff&bg=2986cc'
+    imgUrl: '@Image("400x300","#c33", "#ffffff","小北鼻")'
   }
 })
 Mock.mock(/Upload\/fileUpload/, 'post', () => {

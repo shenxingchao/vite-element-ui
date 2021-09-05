@@ -1,16 +1,170 @@
 <template>
-  <div>333</div>
+  <div class="app-container">
+    <el-card shadow="hover">
+      <el-row type="flex" justify="left">
+        <el-col :xs="24" :md="12">
+          <el-form ref="ruleFormRef" :rules="rules" :model="ruleForm" label-position="right" label-width="150px">
+            <el-form-item label="标题" prop="title">
+              <el-input v-model="ruleForm.title" placeholder="标题" />
+            </el-form-item>
+            <el-form-item label="图片" prop="image">
+              <Upload @handleUploadSuccess="handleUploadSuccess($event)" @handleDeleteFile="ruleForm.image = ''">
+              </Upload>
+            </el-form-item>
+            <el-form-item label="图片列表" prop="image_list">
+              <Upload multiple @handleUploadMultipleSuccess="handleUploadMultipleSuccess($event)"
+                      @handleClickDeleteMultiple="ruleForm.image_list = $event">
+              </Upload>
+            </el-form-item>
+            <el-form-item label="作者" prop="author">
+              <el-input v-model="ruleForm.author" placeholder="作者" />
+            </el-form-item>
+            <el-form-item label="详情" prop="detail">
+              <!-- <QuillEditor :url="serverUrl" :header="header" :value="ruleForm.detail" @input="input($event)">
+              </QuillEditor> -->
+            </el-form-item>
+            <el-form-item label="推荐" prop="recommend">
+              <el-switch v-model="ruleForm.recommend" active-color="#13ce66" inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+            <el-form-item label="置顶" prop="top">
+              <el-switch v-model="ruleForm.top" active-color="#13ce66" inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+            <el-form-item label="状态" prop="">
+              <el-switch v-model="ruleForm.status" active-color="#13ce66" inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="submitForm()">确定</el-button>
+              <el-button @click="resetForm()">重置</el-button>
+            </el-form-item>
+          </el-form>
+        </el-col>
+      </el-row>
+    </el-card>
+  </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, ref, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
+import { articleAdd } from '@/api/article'
+import Upload from '@/components/Upload/index.vue'
+import { getToken } from '@/utils/auth'
+import { configUrl } from '@/utils/config'
 
 export default defineComponent({
-  components: {},
+  name: 'ArticleAdd',
+  components: {
+    Upload,
+  },
   setup() {
-    const router = useRouter()
+    //定义router
+    const $router = useRouter()
 
-    return { router }
+    //数据对象
+    let data = reactive({
+      ruleForm: {
+        title: '',
+        image: '',
+        image_list: [],
+        author: '',
+        type: '',
+        detail: '',
+        recommend: true,
+        top: true,
+        status: true,
+      },
+      rules: {
+        title: [
+          {
+            required: true,
+            message: '请输入标题',
+            trigger: 'blur',
+          },
+        ],
+        image: [
+          {
+            required: true,
+            message: '请上传图片',
+          },
+        ],
+        image_list: [
+          {
+            required: true,
+            message: '请上传图片列表',
+          },
+        ],
+        author: [
+          {
+            required: true,
+            message: '请输入作者',
+            trigger: 'blur',
+          },
+        ],
+        detail: [
+          {
+            required: true,
+            message: '请输入详情',
+          },
+        ],
+      },
+      header: {
+        'X-Token': getToken(),
+      },
+      serverUrl: configUrl + '/Upload/fileUpload',
+    })
+
+    const ruleFormRef = ref(null)
+
+    const submitForm = () => {
+      ruleFormRef.value.validate((valid) => {
+        if (valid) {
+          articleAdd(data.ruleForm)
+            .then((res) => {
+              this.$message({
+                message: '添加成功',
+                type: 'success',
+                onClose: function () {
+                  $router.push('/article/article-list')
+                },
+              })
+            })
+            .catch(() => {})
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    }
+
+    const resetForm = () => {
+      ruleFormRef.value.resetFields()
+    }
+
+    const handleUploadSuccess = (imgUrl) => {
+      data.ruleForm.image = imgUrl
+      ruleFormRef.value.clearValidate('image')
+    }
+
+    const handleUploadMultipleSuccess = (imgUrlList) => {
+      data.ruleForm.image_list = imgUrlList
+      ruleFormRef.value.clearValidate('image_list')
+    }
+
+    const input = (content) => {
+      data.ruleForm.detail = content
+    }
+
+    return {
+      ...toRefs(data),
+      ruleFormRef,
+      submitForm,
+      resetForm,
+      handleUploadSuccess,
+      handleUploadMultipleSuccess,
+      input,
+    }
   },
 })
 </script>
