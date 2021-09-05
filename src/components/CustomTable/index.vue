@@ -417,23 +417,29 @@ export default defineComponent({
 })
 </script>
 
+<style lang="scss">
+.check-cloumn-container {
+  .filter {
+    height: 29px;
+    width: 73px;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .check-cloumn-container {
   display: flex;
   justify-content: space-between;
   align-items: top;
-  .filter {
-    width: 73px;
-    margin-bottom: 18px;
-  }
+  margin-bottom: 18px;
 }
 .check-column-item {
-  padding: 4px 8px;
+  padding: 6px 8px;
+  height: auto;
 }
 
 .el-dropdown-menu {
   .clear-btn-box {
-    padding: 0 10px;
+    padding: 0 10px 6px 10px;
   }
 }
 </style>

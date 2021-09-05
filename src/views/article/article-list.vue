@@ -11,19 +11,19 @@
               <el-input v-model="params.keyword" placeholder="搜索关键词" />
             </el-form-item>
             <el-form-item prop="recommend">
-              <el-select v-model="params.recommend" placeholder="推荐">
+              <el-select v-model="params.recommend" placeholder="推荐" clearable>
                 <el-option label="是" :value="true"> </el-option>
                 <el-option label="否" :value="false"> </el-option>
               </el-select>
             </el-form-item>
             <el-form-item prop="top">
-              <el-select v-model="params.top" placeholder="置顶">
+              <el-select v-model="params.top" placeholder="置顶" clearable>
                 <el-option label="是" :value="true"> </el-option>
                 <el-option label="否" :value="false"> </el-option>
               </el-select>
             </el-form-item>
             <el-form-item prop="status">
-              <el-select v-model="params.status" placeholder="状态">
+              <el-select v-model="params.status" placeholder="状态" clearable>
                 <el-option label="显示" :value="true"> </el-option>
                 <el-option label="隐藏" :value="false">
                 </el-option>
