@@ -4,6 +4,9 @@ import map from '@/router/map'
 // 导入后端根据角色请求动态路由方法
 import { getPermissionRouter } from '../../api/user'
 
+const view_modules = import.meta.glob('../../views/**/*.vue')
+const layout = import.meta.glob('../../layout/index.vue')
+const modules = Object.assign(view_modules, layout)
 /**
  * 递归映射数组
  * @param {未映射路由数组} asyncRouterMap
@@ -17,7 +20,12 @@ function routerMapComponet(asyncRouterMap) {
       if (typeof map[value.component] === 'undefined') {
         asyncRouterMap.splice(index, 1)
       }
-      value.component = map[value.component]
+      for (let key in modules) {
+        let url = '../..' + map[value.component]
+        if (url == key) {
+          value.component = modules[key]
+        }
+      }
       routerMapComponet(value.children)
     }
   })
