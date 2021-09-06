@@ -1,0 +1,12 @@
+*.js linguist-language=javascript
+*.scss linguist-language=scss
+*.vue linguist-language=vue3
+*.css linguist-language=vue3
+*.html linguist-language=vue3
+*.md linguist-language=vue3 
+*.yml linguist-language=vue3 
+*.js linguist-language=vue3 
+*.xml linguist-language=vue3
+*.sql linguist-language=vue3
+*.uml linguist-language=vue3 
+*.cmd linguist-language=vue3 
