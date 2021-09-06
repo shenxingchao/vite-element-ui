@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import { loadEnv } from 'vite'
 import { svgBuilder } from './src/plugins/svgBuilder'
 
 function resolve(dir) {
@@ -9,6 +10,9 @@ function resolve(dir) {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
+  const root = process.cwd()
+  const env = loadEnv(mode, root) // https://www.jianshu.com/p/4973bd983e96
+
   return {
     plugins: [
       vue(),
@@ -37,7 +41,7 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     //共享配置
-    base: './', //开发环境或者生产环境的根路径，后面改掉
+    base: env.VITE_BASE_URL, //开发环境或者生产环境的根路径，后面改掉
     build: {
       minify: true, //打包文件是否压缩  打包出来的css文件 @charset "UTF-8"; 重复添加  原因'node_modules/element-plus/dist/index.css' 里添加了@charset "UTF-8"; 强迫症可以去掉在打包
       target: 'es2015',

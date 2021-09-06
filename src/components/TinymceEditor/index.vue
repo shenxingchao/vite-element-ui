@@ -55,7 +55,7 @@ export default defineComponent({
     // 基本路径，默认为空根目录，如果你的项目发布后的地址为目录形式，
     baseUrl: {
       type: String,
-      default: window.location.origin ? window.location.origin : '',
+      default: import.meta.env.VITE_BASE_URL, //环境变量配置文件.env里面去找吧
     },
     //插件
     plugins: {
