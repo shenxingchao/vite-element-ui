@@ -255,12 +255,12 @@ export default defineComponent({
 /** 
 @图片上传组件
 引入
-import Upload from '@/components/Upload'
+import Upload from '@/components/Upload/index.vue'
 
 使用
-<Upload :file="ruleForm.avatar" @handleUploadSuccess="handleUploadSuccess($event)"
+<upload :file="ruleForm.avatar" @handleUploadSuccess="handleUploadSuccess($event)"
         @handleDeleteFile="ruleForm.avatar = ''">
-</Upload>
+</upload>
 
 //上传成功事件
 handleUploadSuccess: function(imgUrl) {
@@ -270,10 +270,10 @@ handleUploadSuccess: function(imgUrl) {
 }
 
 多图上传
-<Upload :files="ruleForm.image_list" multiple
+<upload :files="ruleForm.image_list" multiple
         @handleUploadMultipleSuccess="handleUploadMultipleSuccess($event)"
         @handleClickDeleteMultiple="ruleForm.image_list = $event">
-</Upload>
+</upload>
       
 //多图上传成功事件
 handleUploadMultipleSuccess: function(imgUrlList) {

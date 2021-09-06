@@ -75,6 +75,11 @@
   resolved "https://registry.nlark.com/@popperjs/core/download/@popperjs/core-2.9.3.tgz?cache=0&sync_timestamp=1628004507787&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
   integrity sha1-i2jaHr1/xgOZnPbr7jSkiZoUuI4=
 
+"@tinymce/tinymce-vue@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.nlark.com/@tinymce/tinymce-vue/download/@tinymce/tinymce-vue-4.0.4.tgz?cache=0&sync_timestamp=1629946721021&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tinymce%2Ftinymce-vue%2Fdownload%2F%40tinymce%2Ftinymce-vue-4.0.4.tgz#b47934f2d1e106ac9af7fa9ba0316a8c96ed314c"
+  integrity sha1-tHk08tHhBqya9/qboDFqjJbtMUw=
+
 "@types/estree@^0.0.48":
   version "0.0.48"
   resolved "https://registry.nlark.com/@types/estree/download/@types/estree-0.0.48.tgz#18dc8091b285df90db2f25aa7d906cfc394b7f74"
@@ -1441,6 +1446,11 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+tinymce@^5.9.1:
+  version "5.9.1"
+  resolved "https://registry.nlark.com/tinymce/download/tinymce-5.9.1.tgz?cache=0&sync_timestamp=1630039291687&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftinymce%2Fdownload%2Ftinymce-5.9.1.tgz#95100cd6748bbe5a5dfaaf8353f129756a0a5372"
+  integrity sha1-lRAM1nSLvlpd+q+DU/EpdWoKU3I=
 
 to-fast-properties@^2.0.0:
   version "2.0.0"

@@ -2,26 +2,26 @@
   <div class="app-container">
     <el-card shadow="hover">
       <el-row type="flex" justify="left">
-        <el-col :xs="24" :md="12">
+        <el-col :xs="24" :md="16">
           <el-form ref="ruleFormRef" :rules="rules" :model="ruleForm" label-position="right" label-width="150px">
             <el-form-item label="标题" prop="title">
               <el-input v-model="ruleForm.title" placeholder="标题" />
             </el-form-item>
             <el-form-item label="图片" prop="image">
-              <Upload @handleUploadSuccess="handleUploadSuccess($event)" @handleDeleteFile="ruleForm.image = ''">
-              </Upload>
+              <upload @handleUploadSuccess="handleUploadSuccess($event)" @handleDeleteFile="ruleForm.image = ''">
+              </upload>
             </el-form-item>
             <el-form-item label="图片列表" prop="image_list">
-              <Upload multiple @handleUploadMultipleSuccess="handleUploadMultipleSuccess($event)"
+              <upload multiple @handleUploadMultipleSuccess="handleUploadMultipleSuccess($event)"
                       @handleClickDeleteMultiple="ruleForm.image_list = $event">
-              </Upload>
+              </upload>
             </el-form-item>
             <el-form-item label="作者" prop="author">
               <el-input v-model="ruleForm.author" placeholder="作者" />
             </el-form-item>
             <el-form-item label="详情" prop="detail">
-              <!-- <QuillEditor :url="serverUrl" :header="header" :value="ruleForm.detail" @input="input($event)">
-              </QuillEditor> -->
+              <editor :value="ruleForm.detail" @change="handleChangeEditor($event)">
+              </editor>
             </el-form-item>
             <el-form-item label="推荐" prop="recommend">
               <el-switch v-model="ruleForm.recommend" active-color="#13ce66" inactive-color="#ff4949">
@@ -50,13 +50,13 @@ import { defineComponent, reactive, ref, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { articleAdd } from '@/api/article'
 import Upload from '@/components/Upload/index.vue'
-import { getToken } from '@/utils/auth'
-import { configUrl } from '@/utils/config'
+import Editor from '@/components/TinymceEditor/index.vue'
 
 export default defineComponent({
   name: 'ArticleAdd',
   components: {
     Upload,
+    Editor,
   },
   setup() {
     //定义router
@@ -109,10 +109,6 @@ export default defineComponent({
           },
         ],
       },
-      header: {
-        'X-Token': getToken(),
-      },
-      serverUrl: configUrl + '/Upload/fileUpload',
     })
 
     const ruleFormRef = ref(null)
@@ -152,7 +148,7 @@ export default defineComponent({
       ruleFormRef.value.clearValidate('image_list')
     }
 
-    const input = (content) => {
+    const handleChangeEditor = (content) => {
       data.ruleForm.detail = content
     }
 
@@ -163,7 +159,7 @@ export default defineComponent({
       resetForm,
       handleUploadSuccess,
       handleUploadMultipleSuccess,
-      input,
+      handleChangeEditor,
     }
   },
 })

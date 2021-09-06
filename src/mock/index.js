@@ -146,7 +146,7 @@ let fileUpload = Mock.mock({
   message: 'success',
   code: 20000,
   data: {
-    imgUrl: '@Image("400x300","#c33", "#ffffff","小北鼻")'
+    imgUrl: '@Image("400x300","#c33", "#ffffff","vite-element-ui")'
   }
 })
 Mock.mock(/Upload\/fileUpload/, 'post', () => {
