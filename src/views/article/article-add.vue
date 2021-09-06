@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, reactive, ref, toRefs } from 'vue'
+import { defineComponent, getCurrentInstance, reactive, ref, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { articleAdd } from '@/api/article'
 import Upload from '@/components/Upload/index.vue'
@@ -59,6 +59,12 @@ export default defineComponent({
     Editor,
   },
   setup() {
+    //当前组件实例
+    const internalInstance = getCurrentInstance()
+
+    //访问 globalProperties
+    const global = internalInstance?.appContext.config.globalProperties
+
     //定义router
     const $router = useRouter()
 
@@ -118,7 +124,7 @@ export default defineComponent({
         if (valid) {
           articleAdd(data.ruleForm)
             .then((res) => {
-              this.$message({
+              global.$message({
                 message: '添加成功',
                 type: 'success',
                 onClose: function () {
