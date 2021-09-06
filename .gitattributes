@@ -1,10 +1,10 @@
+*.js linguist-language=Javascript
 *.scss linguist-language=Scss
 *.vue linguist-language=Vue
 *.css linguist-language=Vue
-*.html linguist-language=Vue
+*.html linguist-language=Html
 *.md linguist-language=Vue 
 *.yml linguist-language=Vue 
-*.js linguist-language=Vue 
 *.xml linguist-language=Vue
 *.sql linguist-language=Vue
 *.uml linguist-language=Vue 
