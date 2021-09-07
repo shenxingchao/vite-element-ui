@@ -9,6 +9,7 @@
 ## 更新日志
 **v1.0.1**(待更新)
 - 编辑器支持多图上传
+- .appContext.config.globalProperties用proxy替换
 - 待更新
 
 **v1.0.0**
