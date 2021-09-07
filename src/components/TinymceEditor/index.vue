@@ -92,9 +92,9 @@ export default defineComponent({
     //初始化设置
     const init = {
       language: 'zh_CN', //汉化
-      language_url: `${props.baseUrl}public/tinymce/langs/zh_CN.js`,
-      skin_url: `${props.baseUrl}public/tinymce/skins/ui/oxide`,
-      content_css: `${props.baseUrl}public/tinymce/skins/content/default/content.css`,
+      language_url: `${props.baseUrl}tinymce/langs/zh_CN.js`,
+      skin_url: `${props.baseUrl}tinymce/skins/ui/oxide`,
+      content_css: `${props.baseUrl}tinymce/skins/content/default/content.css`,
       height: 400, //高度
       convert_urls: false,
       plugins: props.plugins, //插件
