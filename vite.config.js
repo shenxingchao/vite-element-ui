@@ -22,7 +22,8 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       //别名
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        '~@': resolve('public')
       }
     },
     //配置全局css https://cn.vitejs.dev/config/#css-preprocessoroptions

@@ -25,11 +25,15 @@ import 'tinymce/plugins/media' // 插入视频插件
 import 'tinymce/plugins/table' // 插入表格插件
 import 'tinymce/plugins/lists' // 列表插件
 import 'tinymce/plugins/wordcount' // 字数统计插件
-import 'tinymce/plugins/link'
-import 'tinymce/plugins/code'
-import 'tinymce/plugins/preview'
-import 'tinymce/plugins/fullscreen'
-import 'tinymce/plugins/help'
+import 'tinymce/plugins/link' //链接
+import 'tinymce/plugins/code' //源代码
+import 'tinymce/plugins/preview' //预览
+import 'tinymce/plugins/fullscreen' //全屏
+import 'tinymce/plugins/help' //帮助
+
+//扩展插件(多图上传)
+import axupimgsInit from '../../../public/tinymce/plugins/axupimgs'
+axupimgsInit() //初始化多图上传插件
 
 export default defineComponent({
   name: 'TinymceEditor',
@@ -61,13 +65,13 @@ export default defineComponent({
     plugins: {
       type: [String, Array],
       default:
-        'link lists image code table wordcount media preview fullscreen help',
+        'link lists image code table wordcount media preview fullscreen help axupimgs axupimgs',
     },
     //工具栏
     toolbar: {
       type: [String, Array],
       default:
-        'bold italic underline strikethrough | fontsizeselect | formatselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent blockquote | undo redo | link unlink code lists table image media | removeformat | fullscreen preview',
+        'bold italic underline strikethrough | fontsizeselect | formatselect | forecolor backcolor | image axupimgs fullscreen preview | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent blockquote | undo redo | link unlink code lists table  media | removeformat ',
     },
   },
   emits: [
@@ -91,14 +95,18 @@ export default defineComponent({
       language_url: `${props.baseUrl}/tinymce/langs/zh_CN.js`,
       skin_url: `${props.baseUrl}/tinymce/skins/ui/oxide`,
       content_css: `${props.baseUrl}/tinymce/skins/content/default/content.css`,
-      height: 300, //高度
+      height: 400, //高度
       convert_urls: false,
       plugins: props.plugins, //插件
       toolbar: props.toolbar, //工具栏
+      fontsize_formats:
+        '12px 14px 16px 18px 20px 22px 24px 28px 32px 36px 48px 56px 72px', //字体大小
+      font_formats:
+        '微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;',
       statusbar: false, // 底部的状态栏
       menubar: 'file edit insert view format table tools help', // （1级菜单）最上方的菜单
       branding: false, //隐藏版权
-      paste_data_images: false, //这个功能有待研究
+      paste_data_images: false, //图片可粘贴 没效果 这个功能有待研究
       urlconverter_callback: (url, node, onSave, name) => {
         if (node === 'img' && url.startsWith('blob:')) {
           tinymce.activeEditor && tinymce.activeEditor.uploadImages()
@@ -107,9 +115,9 @@ export default defineComponent({
         return url
       }, // 解决粘贴图片后，不自动上传，而是使用base64编码。
       images_upload_handler: (blobInfo, success, failure) => {
-        // const img = 'data:image/jpeg;base64,' + blobInfo.base64() //base64上传自己修改
         let fd = new FormData()
-        fd.append('file', blobInfo.blob(), blobInfo.filename())
+        let file = blobInfo.blob()
+        fd.append('file', file, file.name)
         fileUpload(fd)
           .then((res) => {
             data.imgUrl = res.data.imgUrl
