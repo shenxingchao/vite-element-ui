@@ -32,7 +32,7 @@ import 'tinymce/plugins/fullscreen' //全屏
 import 'tinymce/plugins/help' //帮助
 
 //扩展插件(多图上传)
-import axupimgsInit from '@/assets/tinymce/plugins/axupimgs'
+import axupimgsInit from './plugins/axupimgs'
 axupimgsInit() //初始化多图上传插件
 
 export default defineComponent({
@@ -92,9 +92,9 @@ export default defineComponent({
     //初始化设置
     const init = {
       language: 'zh_CN', //汉化
-      language_url: `${props.baseUrl}src/assets/tinymce/langs/zh_CN.js`,
-      skin_url: `${props.baseUrl}src/assets/tinymce/skins/ui/oxide`,
-      content_css: `${props.baseUrl}src/assets/tinymce/skins/content/default/content.css`,
+      language_url: `${props.baseUrl}public/tinymce/langs/zh_CN.js`,
+      skin_url: `${props.baseUrl}public/tinymce/skins/ui/oxide`,
+      content_css: `${props.baseUrl}public/tinymce/skins/content/default/content.css`,
       height: 400, //高度
       convert_urls: false,
       plugins: props.plugins, //插件

@@ -4,7 +4,8 @@ const axupimgsInit = () => {
     window.axupimgs = {} //扔外部公共变量，也可以扔一个自定义的位置
 
     var baseURL = import.meta.env.VITE_BASE_URL + '' //tinymce.baseURL
-    var iframe1 = baseURL + 'src/assets/tinymce/plugins/axupimgs/upfiles.html'
+    var iframe1 =
+      baseURL + 'src/components/TinymceEditor/plugins/axupimgs/upfiles.html'
     axupimgs.images_upload_handler = editor.getParam(
       'images_upload_handler',
       undefined,
