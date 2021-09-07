@@ -6,17 +6,20 @@
         <span>标签页</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>头部固定</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>侧边栏Logo</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
-
+      <div class="drawer-item">
+        <span>当前版本：{{app_version}}</span>
+      </div>
+      <div class="drawer-item">
+        <span>©github.com/shenxingchao</span>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +34,9 @@ export default defineComponent({
     const $store = useStore()
 
     //数据对象
-    let data = reactive({})
+    let data = reactive({
+      app_version: import.meta.env.VITE_APP_VERSION,
+    })
 
     const set = reactive({
       fixedHeader: computed({
