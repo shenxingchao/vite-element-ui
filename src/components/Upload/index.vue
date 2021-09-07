@@ -74,10 +74,7 @@ export default defineComponent({
   ],
   setup(props, { emit }) {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
-
-    //访问 globalProperties
-    const global = internalInstance?.appContext.config.globalProperties
+    const { proxy } = getCurrentInstance()
 
     //数据对象
     let data = reactive({
@@ -115,7 +112,7 @@ export default defineComponent({
       fileUpload(fd)
         .then((res) => {
           data.imgUrl = res.data.imgUrl
-          global.$message({
+          proxy.$message({
             message: '上传成功',
             type: 'success',
             onClose: function () {},
@@ -148,7 +145,7 @@ export default defineComponent({
      */
     const handleUploadFiles = (files) => {
       if (files.length + data.imgList.length > props.limit) {
-        global.$message({
+        proxy.$message({
           type: 'error',
           message: '最多可上传' + props.limit + '张',
         })
@@ -172,7 +169,7 @@ export default defineComponent({
             .catch(() => {})
         })
       }).then(() => {
-        global.$message({
+        proxy.$message({
           type: 'success',
           message: '图片列表上传成功',
         })

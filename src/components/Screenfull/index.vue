@@ -19,10 +19,7 @@ export default defineComponent({
   components: {},
   setup() {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
-
-    //访问 globalProperties
-    const global = internalInstance?.appContext.config.globalProperties
+    const { proxy } = getCurrentInstance()
 
     //数据对象
     let data = reactive({
@@ -32,7 +29,7 @@ export default defineComponent({
     const click = () => {
       if (!screenfull.isEnabled) {
         //fix bug enable attribute name error
-        global.$message({
+        proxy.$message({
           message: 'you browser can not work',
           type: 'warning',
         })

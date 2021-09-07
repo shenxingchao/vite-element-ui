@@ -69,10 +69,7 @@ export default defineComponent({
   },
   setup() {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
-
-    //访问 globalProperties
-    const global = internalInstance?.appContext.config.globalProperties
+    const { proxy } = getCurrentInstance()
 
     //定义router
     const $router = useRouter()
@@ -147,7 +144,7 @@ export default defineComponent({
         if (valid) {
           articleEdit(data.ruleForm)
             .then((res) => {
-              global.$message({
+              proxy.$message({
                 message: '保存成功',
                 type: 'success',
                 onClose: function () {

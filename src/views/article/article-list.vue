@@ -80,11 +80,7 @@ export default defineComponent({
   },
   setup() {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
-
-    //访问 globalProperties
-    const global = internalInstance?.appContext.config.globalProperties
-
+    const { proxy } = getCurrentInstance()
     //定义router
     const $router = useRouter()
 
@@ -212,7 +208,7 @@ export default defineComponent({
       articleDelete({ ids: [row.id] })
         .then((res) => {
           data.List.splice(index, 1)
-          global.$message({
+          proxy.$message({
             message: '删除成功',
             type: 'success',
           })
@@ -221,7 +217,7 @@ export default defineComponent({
     }
 
     const handleDownload = (index, row) => {
-      global.$message({
+      proxy.$message({
         message: '当前下载行的id是' + row.id,
         type: 'success',
       })
@@ -229,7 +225,7 @@ export default defineComponent({
 
     const handleDeleteRows = () => {
       if (data.selectionIdList.length == 0) {
-        global.$message({
+        proxy.$message({
           message: '请选择要删除的数据',
           type: 'error',
         })
@@ -241,7 +237,7 @@ export default defineComponent({
           data.List = data.List.filter(
             (item) => data.selectionIdList.indexOf(item.id) == -1
           )
-          global.$message({
+          proxy.$message({
             message: '删除成功',
             type: 'success',
             onClose: function () {

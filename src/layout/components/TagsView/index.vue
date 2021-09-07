@@ -39,7 +39,7 @@ export default defineComponent({
   components: {},
   setup() {
     //当前组件实例
-    const internalInstance = getCurrentInstance()
+    const { proxy } = getCurrentInstance()
 
     //store
     const $store = useStore()
@@ -226,8 +226,8 @@ export default defineComponent({
     const openMenu = (tag, e) => {
       const menuMinWidth = 105
 
-      const offsetLeft = internalInstance.proxy.$el.getBoundingClientRect().left // container margin left
-      const offsetWidth = internalInstance.proxy.$el.offsetWidth // container width
+      const offsetLeft = proxy.$el.getBoundingClientRect().left // container margin left
+      const offsetWidth = proxy.$el.offsetWidth // container width
       const maxLeft = offsetWidth - menuMinWidth // left boundary
       const left = e.clientX - offsetLeft + 15 // 15: margin right
 

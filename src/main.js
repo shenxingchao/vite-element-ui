@@ -19,6 +19,8 @@ import '@/permission'
 import './mock'
 //引入dialog组件可拖拽指令 使用方法 标签上加上v-el-drag-dialog即可
 import elDragDialog from '@/directive/el-drag-dialog'
+//引入全局变量
+import provide from '@/plugins/provide'
 
 //App对象
 const app = createApp(App)
@@ -34,6 +36,9 @@ app.use(ElementPlus, {
 app.use(SvgPlugin, {
   imports: []
 })
+//使用拖动指令
 app.use(elDragDialog)
+//使用全局变量
+app.use(provide)
 //挂载
 app.mount('#app')
