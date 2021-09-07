@@ -3,7 +3,7 @@
     <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on"
              label-position="left">
       <div class="title-container">
-        <h3 class="title">后台管理系统</h3>
+        <h3 class="title">{{app_name}}</h3>
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -44,6 +44,7 @@ export default defineComponent({
 
     //数据对象
     let data = reactive({
+      app_name: import.meta.env.VITE_APP_NAME,
       loginForm: {
         username: '',
         password: '',

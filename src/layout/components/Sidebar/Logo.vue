@@ -29,8 +29,8 @@ export default defineComponent({
   setup() {
     //数据对象
     let data = reactive({
-      title: '后台管理系统',
-      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png',
+      title: import.meta.env.VITE_APP_NAME,
+      logo: 'https://vue3js.cn/docs/logo.png',
     })
 
     return {

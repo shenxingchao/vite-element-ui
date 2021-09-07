@@ -96,7 +96,7 @@ export default defineComponent({
     -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.025);
+      background: rgba(0, 0, 0, 0.05);
     }
   }
 

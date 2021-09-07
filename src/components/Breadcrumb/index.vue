@@ -73,7 +73,7 @@ export default defineComponent({
         $router.push(redirect)
         return
       }
-      $router.push(this.pathCompile(path))
+      $router.push(pathCompile(path))
     }
 
     //相当于在created里执行 https://vue3js.cn/docs/zh/api/composition-api.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90
