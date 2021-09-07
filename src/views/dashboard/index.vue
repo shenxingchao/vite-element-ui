@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <el-alert class="dashboard-container-text" title="vue-element-ui 发布啦" type="success">
+    <el-alert class="dashboard-container-text" title="vite-element-ui 发布啦" type="success">
     </el-alert>
     <el-row :gutter="24" class="item-box">
       <el-col :span="6">
