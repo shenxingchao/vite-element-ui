@@ -3,8 +3,8 @@ const axupimgsInit = () => {
     var pluginName = '图片批量上传'
     window.axupimgs = {} //扔外部公共变量，也可以扔一个自定义的位置
 
-    var baseURL = import.meta.env.VITE_BASE_URL + '/public' //tinymce.baseURL
-    var iframe1 = baseURL + '/tinymce/plugins/axupimgs/upfiles.html'
+    var baseURL = import.meta.env.VITE_BASE_URL + '' //tinymce.baseURL
+    var iframe1 = baseURL + 'src/assets/tinymce/plugins/axupimgs/upfiles.html'
     axupimgs.images_upload_handler = editor.getParam(
       'images_upload_handler',
       undefined,
