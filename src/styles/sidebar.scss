@@ -1,14 +1,15 @@
 #app {
   .main-container {
     min-height: 100%;
-    transition: margin-left 0.28s;
-    margin-left: $sideBarWidth;
+    transition: transform 0.28s ease-in-out 0s;
+    width: calc(100% - #{$sideBarWidth});
+    transform: translateX($sideBarWidth);
     position: relative;
     background: #fafafa;
   }
 
   .sidebar-container {
-    transition: width 0.28s;
+    transition: width 0.28s ease-in-out;
     width: $sideBarWidth !important;
     background-color: $menuBg;
     height: 100%;
@@ -123,7 +124,8 @@
     }
 
     .main-container {
-      margin-left: 54px;
+      width: calc(100% - 54px);
+      transform: translateX(54px);
     }
 
     .submenu-title-noDropdown {
@@ -185,7 +187,8 @@
   // mobile responsive
   .mobile {
     .main-container {
-      margin-left: 0px;
+      width: 100%;
+      transform: translateX(0);
     }
 
     .sidebar-container {
