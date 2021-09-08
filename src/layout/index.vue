@@ -148,12 +148,12 @@ export default defineComponent({
   top: 0;
   right: 0;
   z-index: 9;
-  width: 100%;
+  width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
 }
 
 .hideSidebar .fixed-header {
-  width: 100%;
+  width: calc(100% - 54px);
 }
 
 .mobile .fixed-header {

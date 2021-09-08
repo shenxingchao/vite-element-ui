@@ -1,9 +1,9 @@
 #app {
   .main-container {
     min-height: 100%;
-    transition: transform 0.28s ease-in-out 0s;
+    transition: left 0.28s ease-in-out 0s;
     width: calc(100% - #{$sideBarWidth});
-    transform: translateX($sideBarWidth);
+    left: $sideBarWidth;
     position: relative;
     background: #fafafa;
   }
@@ -125,7 +125,7 @@
 
     .main-container {
       width: calc(100% - 54px);
-      transform: translateX(54px);
+      left: 54px;
     }
 
     .submenu-title-noDropdown {
@@ -188,7 +188,7 @@
   .mobile {
     .main-container {
       width: 100%;
-      transform: translateX(0);
+      left: 0;
     }
 
     .sidebar-container {
