@@ -69,51 +69,53 @@ export default {
     }
     .item-box {
       .one {
-        background: rgba($color: #f57e7e, $alpha: 0.8);
+        background: rgba($color: #eb7070, $alpha: 1);
         &:hover {
-          background: rgba($color: #f57e7e, $alpha: 1);
+          background: rgba($color: #d83b3b, $alpha: 1);
         }
       }
       .two {
-        background: rgba($color: #75b9e6, $alpha: 0.8);
+        background: rgba($color: #75b9e6, $alpha: 1);
         &:hover {
-          background: rgba($color: #75b9e6, $alpha: 1);
+          background: rgba($color: #3592cf, $alpha: 1);
         }
       }
       .three {
-        background: rgba($color: #71d398, $alpha: 0.8);
+        background: rgba($color: #71d398, $alpha: 1);
         &:hover {
-          background: rgba($color: #71d398, $alpha: 1);
+          background: rgba($color: #3ab46b, $alpha: 1);
         }
       }
       .four {
-        background: rgba($color: #e65097, $alpha: 0.8);
+        background: rgba($color: #e65097, $alpha: 1);
         &:hover {
-          background: rgba($color: #e65097, $alpha: 1);
+          background: rgba($color: #d82e7d, $alpha: 1);
         }
       }
       .item {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
         align-items: center;
         color: #ffffff;
         padding: 20px 10px;
         cursor: pointer;
         border-radius: 4px;
+        transition: all 0.5s ease-in-out;
         .item-left {
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-left: 20px;
           .number {
-            font-size: 50px;
+            font-size: 32px;
           }
           .sm {
             margin-top: 10px;
+            font-size: 18px;
           }
         }
         .icon {
-          font-size: 80px;
+          font-size: 60px;
         }
       }
     }
