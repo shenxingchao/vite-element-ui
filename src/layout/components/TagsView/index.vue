@@ -200,7 +200,7 @@ export default defineComponent({
 
     const closeAllTags = (view) => {
       $store.dispatch('tagsView/delAllViews').then(({ visitedViews }) => {
-        if (data.affixTags.some((tag) => tag.path === view.path)) {
+        if (data.affixTags.some((tag) => tag.fullPath === $route.path)) {
           return
         }
         toLastView(visitedViews, view)
@@ -237,7 +237,7 @@ export default defineComponent({
         data.left = left
       }
 
-      data.top = e.clientY
+      data.top = 39
       data.visible = true
       data.selectedTag = tag
     }
@@ -334,11 +334,13 @@ export default defineComponent({
   }
 }
 .tags-view-container {
+  z-index: 2;
   height: 42px;
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+  position: relative;
   .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;

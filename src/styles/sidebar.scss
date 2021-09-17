@@ -1,24 +1,22 @@
 #app {
   .main-container {
-    min-height: 100%;
-    transition: left 0.28s ease-in-out 0s;
-    width: calc(100% - #{$sideBarWidth});
-    left: $sideBarWidth;
-    position: relative;
+    height: 100%;
+    flex: 1;
     background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
   }
 
   .sidebar-container {
-    transition: width 0.28s ease-in-out;
-    width: $sideBarWidth !important;
+    transition: all 0.2s ease-in-out;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
+    flex: 0 0 240px;
     background-color: $menuBg;
     height: 100%;
-    position: fixed;
-    font-size: 0px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1001;
+    z-index: 0;
     overflow: hidden;
 
     // reset element-ui css
@@ -104,7 +102,7 @@
 
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
-      min-width: $sideBarWidth !important;
+      min-width: 240px !important;
       background: $subMenuBg !important;
       color: $menuText !important;
       &:hover {
@@ -120,7 +118,10 @@
 
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: 54px;
+      min-width: 54px;
+      max-width: 54px;
+      flex: 0 0 54px;
     }
 
     .main-container {
@@ -181,7 +182,7 @@
   }
 
   .el-menu--collapse .el-menu .el-sub-menu {
-    min-width: $sideBarWidth !important;
+    min-width: 240px !important;
   }
 
   // mobile responsive
@@ -192,15 +193,19 @@
     }
 
     .sidebar-container {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 999;
       transition: transform 0.28s;
-      width: $sideBarWidth !important;
+      width: 240px !important;
     }
 
     &.hideSidebar {
       .sidebar-container {
         pointer-events: none;
         transition-duration: 0.3s;
-        transform: translate3d(-$sideBarWidth, 0, 0);
+        transform: translate3d(-240px, 0, 0);
       }
     }
   }

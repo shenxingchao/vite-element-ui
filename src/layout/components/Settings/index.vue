@@ -7,10 +7,6 @@
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>头部固定</span>
-        <el-switch v-model="fixedHeader" class="drawer-switch" />
-      </div>
-      <div class="drawer-item">
         <span>侧边栏Logo</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
@@ -39,17 +35,6 @@ export default defineComponent({
     })
 
     const set = reactive({
-      fixedHeader: computed({
-        get() {
-          return $store.getters.fixedHeader
-        },
-        set(val) {
-          $store.dispatch('settings/changeSetting', {
-            key: 'fixedHeader',
-            value: val,
-          })
-        },
-      }),
       tagsView: computed({
         get() {
           return $store.getters.tagsView

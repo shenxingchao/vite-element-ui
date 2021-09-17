@@ -81,6 +81,7 @@ export default defineComponent({
 </style>
 <style lang="scss" scoped>
 .navbar {
+  z-index: 1;
   height: 50px;
   overflow: hidden;
   position: relative;
