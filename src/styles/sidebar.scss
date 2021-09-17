@@ -1,3 +1,4 @@
+$sidebarWidth: 274px;
 #app {
   .main-container {
     height: 100%;
@@ -10,10 +11,10 @@
 
   .sidebar-container {
     transition: all 0.2s ease-in-out;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
-    flex: 0 0 240px;
+    width: $sidebarWidth;
+    min-width: $sidebarWidth;
+    max-width: $sidebarWidth;
+    flex: 0 0 $sidebarWidth;
     background-color: $menuBg;
     height: 100%;
     z-index: 0;
@@ -102,7 +103,7 @@
 
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
-      min-width: 240px !important;
+      min-width: $sidebarWidth !important;
       background: $subMenuBg !important;
       color: $menuText !important;
       &:hover {
@@ -182,7 +183,7 @@
   }
 
   .el-menu--collapse .el-menu .el-sub-menu {
-    min-width: 240px !important;
+    min-width: $sidebarWidth !important;
   }
 
   // mobile responsive
@@ -198,14 +199,14 @@
       top: 0;
       z-index: 999;
       transition: transform 0.28s;
-      width: 240px !important;
+      width: $sidebarWidth !important;
     }
 
     &.hideSidebar {
       .sidebar-container {
         pointer-events: none;
         transition-duration: 0.3s;
-        transform: translate3d(-240px, 0, 0);
+        transform: translate3d(-$sidebarWidth, 0, 0);
       }
     }
   }
