@@ -7,7 +7,7 @@ import store from './store'
 import 'normalize.css/normalize.css'
 //引入element plus
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css' 如果要用这个 那么去掉/src/styles/index.scss里的element scss引用
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 // index scss
 import './styles/index.scss'
