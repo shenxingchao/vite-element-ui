@@ -13,7 +13,6 @@
 /* fade-slide */
 .fade-slide-enter-active {
   transition: all 0.25s ease;
-  transition-delay: 0.25s;
   transform: translateZ(0);
 }
 .fade-slide-leave-active {
