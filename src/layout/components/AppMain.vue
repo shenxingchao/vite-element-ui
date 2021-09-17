@@ -40,6 +40,6 @@ export default defineComponent({
   flex: 1;
   width: 100%;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 </style>
