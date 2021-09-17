@@ -1493,10 +1493,10 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.nlark.com/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
 
-vite@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.nlark.com/vite/download/vite-2.5.3.tgz#88d40a9efb9bec66bd87a7676c5689f35ff63742"
-  integrity sha1-iNQKnvub7Ga9h6dnbFaJ81/2N0I=
+vite@^2.5.8:
+  version "2.5.8"
+  resolved "https://registry.nlark.com/vite/download/vite-2.5.8.tgz#e2da21540411e91cb1c4a62e133c652a787cf116"
+  integrity sha1-4tohVAQR6RyxxKYuEzxlKnh88RY=
   dependencies:
     esbuild "^0.12.17"
     postcss "^8.3.6"
