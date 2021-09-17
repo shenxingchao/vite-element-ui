@@ -3,7 +3,7 @@
     <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on"
              label-position="left">
       <div class="title-container">
-        <h3 class="title">{{app_name}}</h3>
+        <h3 class="title">Administrator Login</h3>
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -140,7 +140,7 @@ $cursor: $theme;
 .login-container {
   .el-input {
     display: inline-block;
-    height: 47px;
+    height: 40px;
     width: 85%;
     input {
       color: $h1c !important;
@@ -148,8 +148,6 @@ $cursor: $theme;
       border: 0px;
       -webkit-appearance: none;
       border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      height: 47px;
       caret-color: $cursor;
 
       &:-webkit-autofill {
@@ -174,7 +172,7 @@ $dark_gray: #889aa4;
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background-color: #5685b5;
   // background: url('../../assets/login/login-background.png') 100% 100% no-repeat;
   overflow: hidden;
   position: relative;
@@ -205,12 +203,14 @@ $dark_gray: #889aa4;
   .el-form-item {
     background: #ffffff;
     border: 1px solid #cccccc;
+    .el-form-item__content {
+      height: 40px;
+    }
   }
 
   .svg-container {
-    padding: 6px 5px 6px 15px;
+    padding: 0 8px;
     color: $dark_gray;
-    vertical-align: middle;
     width: 30px;
     display: inline-block;
     .svg-icon {
@@ -223,7 +223,7 @@ $dark_gray: #889aa4;
 
     .title {
       font-size: 26px;
-      color: $h1c;
+      color: $h2c;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
