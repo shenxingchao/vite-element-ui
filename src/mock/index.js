@@ -134,6 +134,67 @@ let getPermissionRouter = Mock.mock({
           }
         }
       ]
+    },
+    {
+      path: '/nested',
+      name: 'Nested',
+      component: 'Layout',
+      redirect: '/nested/nested1',
+      // redirect: 'noRedirect',
+      alwaysShow: true,
+      hidden: false,
+      meta: {
+        title: '一级菜单',
+        icon: 'table'
+      },
+      children: [
+        {
+          path: 'nested1',
+          name: 'Nested1',
+          component: 'Nested1',
+          alwaysShow: false,
+          hidden: false,
+          meta: {
+            title: '二级菜单-1',
+            icon: 'table'
+          },
+          children: [
+            {
+              path: 'nested1-1',
+              name: 'Nested1-1',
+              component: 'Nested1-1',
+              alwaysShow: false,
+              hidden: false,
+              meta: {
+                title: '三级菜单-1-1',
+                icon: 'table'
+              }
+            },
+            {
+              path: 'nested1-2',
+              name: 'Nested1-2',
+              component: 'Nested1-2',
+              alwaysShow: false,
+              hidden: false,
+              meta: {
+                title: '三级菜单-1-2',
+                icon: 'table'
+              }
+            }
+          ]
+        },
+        {
+          path: 'nested2',
+          name: 'Nested2',
+          component: 'Nested2',
+          alwaysShow: false,
+          hidden: false,
+          meta: {
+            title: '二级菜单-2',
+            icon: 'table'
+          }
+        }
+      ]
     }
   ]
 })
