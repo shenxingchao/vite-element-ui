@@ -1,6 +1,6 @@
 # 欢迎使用 vite-element-ui 后台模板
 **基于vue3 + vite + element-plus 开发的后台模板**
-![calc](https://img.shields.io/badge/version-1.0.1-COLOR)  ![calc](https://img.shields.io/badge/-vue3-red) ![calc](https://img.shields.io/badge/-elementPlus-blue) ![calc](https://img.shields.io/badge/-vite-yellow) ![calc](https://img.shields.io/badge/-admin-orange)
+![calc](https://img.shields.io/badge/version-1.0.2-COLOR)  ![calc](https://img.shields.io/badge/-vue3-red) ![calc](https://img.shields.io/badge/-elementPlus-blue) ![calc](https://img.shields.io/badge/-vite-yellow) ![calc](https://img.shields.io/badge/-admin-orange)
 
 ## 在线预览
 [演示地址](https://shenxingchao.github.io/vite-element-ui/#)
