@@ -195,9 +195,9 @@ export default defineComponent({
       if (localStorage.getItem(props.id) == null) {
         localStorage.setItem(props.id, JSON.stringify(props.tableHead))
       } else {
-        let tamptableHead = JSON.parse(localStorage.getItem(props.id))
+        let temptableHead = JSON.parse(localStorage.getItem(props.id))
 
-        tamptableHead.forEach((element) => {
+        temptableHead.forEach((element) => {
           let x = props.tableHead.find((obj) => obj.label == element.label)
           x.width = element.width
         })
