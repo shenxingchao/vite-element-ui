@@ -110,7 +110,8 @@ let getPermissionRouter = Mock.mock({
           hidden: false,
           meta: {
             title: '文章列表',
-            icon: 'table'
+            icon: 'table',
+            keepAlive: true
           }
         },
         {
@@ -120,7 +121,8 @@ let getPermissionRouter = Mock.mock({
           hidden: true,
           component: 'ArticleAdd',
           meta: {
-            title: '文章添加'
+            title: '文章添加',
+            keepAlive: true
           }
         },
         {
