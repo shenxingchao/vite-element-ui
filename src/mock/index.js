@@ -113,7 +113,8 @@ let getPermissionRouter = Mock.mock({
           meta: {
             zh_title: '文章列表',
             en_title: 'ArticleList',
-            icon: 'table'
+            icon: 'table',
+            keepAlive: true
           }
         },
         {
@@ -124,7 +125,8 @@ let getPermissionRouter = Mock.mock({
           component: 'ArticleAdd',
           meta: {
             zh_title: '文章添加',
-            en_title: 'ArticleAdd'
+            en_title: 'ArticleAdd',
+            keepAlive: true
           }
         },
         {
