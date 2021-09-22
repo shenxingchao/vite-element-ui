@@ -9,32 +9,49 @@
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
-        <el-input ref="username" v-model="loginForm.username" placeholder="用户名" name="username" type="text" tabindex="1"
-                  auto-complete="on" />
+        <el-input ref="username" v-model="loginForm.username" :placeholder="$t('field.username')" name="username"
+                  type="text" tabindex="1" auto-complete="on" />
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon-class="password" />
         </span>
         <el-input :key="passwordType" ref="passwordRef" v-model="loginForm.password" :type="passwordType"
-                  placeholder="密码" name="password" tabindex="2" auto-complete="on" @keyup.enter="handleLogin" />
+                  :placeholder="$t('field.password')" name="password" tabindex="2" auto-complete="on"
+                  @keyup.enter="handleLogin" />
         <span class="show-pwd" @click="showPwd">
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
+      <div class="lang-change">
+        <el-radio v-model="lang" label="zh" @click="changeLang('zh')">中文</el-radio>
+        <el-radio v-model="lang" label="en" @click="changeLang('en')">English
+        </el-radio>
+      </div>
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.prevent="handleLogin">
-        登录</el-button>
+        {{$t('opt.login')}}</el-button>
     </el-form>
   </div>
 </template>
 <script>
-import { defineComponent, reactive, toRefs, ref, nextTick, watch } from 'vue'
+import {
+  defineComponent,
+  getCurrentInstance,
+  reactive,
+  toRefs,
+  ref,
+  nextTick,
+  watch,
+} from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   components: {},
   setup() {
+    //当前组件实例
+    const { proxy } = getCurrentInstance()
+
     //store
     const $store = useStore()
 
@@ -54,20 +71,21 @@ export default defineComponent({
           {
             required: true,
             trigger: 'blur',
-            message: '请输入用户名',
+            message: proxy.$t('tips.input') + proxy.$t('field.username'),
           },
         ],
         password: [
           {
             required: true,
             trigger: 'blur',
-            message: '请输入密码',
+            message: proxy.$t('tips.input') + proxy.$t('field.password'),
           },
         ],
       },
       loading: false,
       passwordType: 'password',
       redirect: undefined,
+      lang: localStorage.lang || 'zh',
     })
 
     //refs dom对象
@@ -118,7 +136,20 @@ export default defineComponent({
       })
     }
 
-    return { ...toRefs(data), passwordRef, loginFormRef, showPwd, handleLogin }
+    const changeLang = (lang) => {
+      localStorage.setItem('lang', lang)
+      //目前先这样刷新，路由里的标题不会随之改变
+      $router.go(0)
+    }
+
+    return {
+      ...toRefs(data),
+      passwordRef,
+      loginFormRef,
+      showPwd,
+      handleLogin,
+      changeLang,
+    }
   },
 })
 </script>

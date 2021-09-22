@@ -16,7 +16,7 @@
                 929
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                上新
+                {{$t('info.new')}}
               </el-row>
             </el-container>
           </el-col>
@@ -35,7 +35,7 @@
                 999+
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                消息
+                {{$t('info.message')}}
               </el-row>
             </el-container>
           </el-col>
@@ -54,7 +54,7 @@
                 5547
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                图库
+                {{$t('info.image')}}
               </el-row>
             </el-container>
           </el-col>
@@ -73,7 +73,7 @@
                 165
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                链接
+                {{$t('info.link')}}
               </el-row>
             </el-container>
           </el-col>
@@ -92,7 +92,7 @@
                 929
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                分类
+                {{$t('info.category')}}
               </el-row>
             </el-container>
           </el-col>
@@ -111,7 +111,7 @@
                 10
               </el-row>
               <el-row class="item-box-right-text" justify="center" type="flex">
-                计划
+                {{$t('info.plan')}}
               </el-row>
             </el-container>
           </el-col>

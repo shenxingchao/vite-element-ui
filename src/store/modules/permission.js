@@ -7,6 +7,10 @@ import { getPermissionRouter } from '../../api/user'
 const view_modules = import.meta.glob('../../views/**/*.vue')
 const layout = import.meta.glob('../../layout/index.vue')
 const modules = Object.assign(view_modules, layout)
+
+//读取缓存中的语言
+const language = localStorage.lang || 'zh'
+
 /**
  * 递归映射数组
  * @param {未映射路由数组} asyncRouterMap
@@ -26,6 +30,11 @@ function routerMapComponet(asyncRouterMap) {
           value.component = modules[key]
         }
       }
+
+      if (value.meta) {
+        value.meta.title = value.meta[language + '_title']
+      }
+
       routerMapComponet(value.children)
     }
   })

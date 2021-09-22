@@ -4,17 +4,17 @@
       <slot v-if="showSearch" name="searchBar"></slot>
       <el-dropdown v-if="showFilter" class="filter">
         <el-button type="primary" size="mini">
-          筛选<i class="el-icon-arrow-down el-icon--right"></i>
+          {{$t('opt.filter')}}<i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <template #dropdown>
           <el-dropdown-menu>
             <div class="clear-btn-box">
               <el-button size="mini" icon="el-icon-refresh" type="primary" @click="handleClickClearCache">
-                清除缓存
+                {{$t('opt.clear_cache')}}
               </el-button>
             </div>
             <el-checkbox v-model="checkAll" class="check-column-item" :indeterminate="isIndeterminate"
-                         @change="handleCheckAllChange">全选
+                         @change="handleCheckAllChange">{{$t('opt.check_all')}}
             </el-checkbox>
             <el-checkbox-group v-model="checkedColumn" @change="handleCheckedColumnChange">
               <div v-for="(item,index) in tableHead" :key="index">
@@ -48,7 +48,7 @@
         </template>
       </el-table-column>
       <!-- 操作列 -->
-      <el-table-column v-if="showOpt" align="center" label="操作" :min-width="optWidth">
+      <el-table-column v-if="showOpt" align="center" :label="$t('field.opt')" :min-width="optWidth">
         <template v-slot="scope">
           <el-button size="mini" icon="el-icon-edit" type="primary" @click.stop="handleEdit(scope.$index, scope.row)">
           </el-button>

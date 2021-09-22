@@ -1,17 +1,17 @@
 <template>
   <div class="drawer-container">
     <div>
-      <h3 class="drawer-title">页面设置</h3>
+      <h3 class="drawer-title">{{$t('info.page_setting')}}</h3>
       <div class="drawer-item">
-        <span>标签页</span>
+        <span>{{$t('opt.open_tags')}}</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>侧边栏Logo</span>
+        <span>{{$t('opt.sidebar_logo')}}</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>当前版本：{{app_version}}</span>
+        <span>{{$t('opt.current_version')}}：{{app_version}}</span>
       </div>
       <div class="drawer-item">
         <span>©github.com/shenxingchao</span>

@@ -1,42 +1,45 @@
 <template>
   <div class="app-container">
     <el-card shadow="hover">
-      <custom-table id="article-list" :data="List" :table-head="tableHead" :params="params" :show-selection="true"
+      <custom-table :id="tableId" :data="List" :table-head="tableHead" :params="params" :show-selection="true"
                     :opt-width="180" @handleSizeChange="handleSizeChange" @handleCurrentChange="handleCurrentChange"
                     @handleSelectionChange="handleSelectionChange" @handleRowDblClick="handleRowDblClick"
                     @handleEdit="handleEdit" @handleDelete="handleDelete">
         <template v-slot:searchBar>
           <el-form ref="searchForm" :inline="true" :model="params" class="demo-form-inline" size="mini">
             <el-form-item prop="keyword">
-              <el-input v-model="params.keyword" placeholder="搜索关键词" />
+              <el-input v-model="params.keyword" :placeholder="$t('field.keyword')" />
             </el-form-item>
             <el-form-item prop="recommend">
-              <el-select v-model="params.recommend" placeholder="推荐" clearable>
-                <el-option label="是" :value="true"> </el-option>
-                <el-option label="否" :value="false"> </el-option>
+              <el-select v-model="params.recommend" :placeholder="$t('field.recommend')" clearable>
+                <el-option :label="$t('field.yes')" :value="true"> </el-option>
+                <el-option :label="$t('field.no')" :value="false"> </el-option>
               </el-select>
             </el-form-item>
             <el-form-item prop="top">
-              <el-select v-model="params.top" placeholder="置顶" clearable>
-                <el-option label="是" :value="true"> </el-option>
-                <el-option label="否" :value="false"> </el-option>
+              <el-select v-model="params.top" :placeholder="$t('field.top')" clearable>
+                <el-option :label="$t('field.yes')" :value="true"> </el-option>
+                <el-option :label="$t('field.no')" :value="false"> </el-option>
               </el-select>
             </el-form-item>
             <el-form-item prop="status">
-              <el-select v-model="params.status" placeholder="状态" clearable>
-                <el-option label="显示" :value="true"> </el-option>
-                <el-option label="隐藏" :value="false">
+              <el-select v-model="params.status" :placeholder="$t('field.status')" clearable>
+                <el-option :label="$t('field.show')" :value="true"> </el-option>
+                <el-option :label="$t('field.hide')" :value="false">
                 </el-option>
               </el-select>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-              <el-button icon="el-icon-refresh-left" @click="onReset();onSubmit()">重置
+              <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('opt.search')}}</el-button>
+              <el-button icon="el-icon-refresh-left" @click="onReset();onSubmit()">{{$t('opt.reset')}}
               </el-button>
-              <el-button type="primary" icon="el-icon-plus" size="mini" @click="$router.push('/article/article-add')">添加
+              <el-button type="primary" icon="el-icon-plus" size="mini" @click="$router.push('/article/article-add')">
+                {{ $t('opt.add') }}
               </el-button>
-              <el-button type="danger" icon="el-icon-delete" size="mini" @click="handleDeleteRows">删除</el-button>
-              <el-button type="warning" icon="el-icon-rank" @click="dialogVisible = true">这是一个可移动弹窗</el-button>
+              <el-button type="danger" icon="el-icon-delete" size="mini" @click="handleDeleteRows">{{$t('opt.delete')}}
+              </el-button>
+              <el-button type="warning" icon="el-icon-rank" @click="dialogVisible = true">{{$t('opt.dialog')}}
+              </el-button>
             </el-form-item>
           </el-form>
         </template>
@@ -48,12 +51,12 @@
       </custom-table>
     </el-card>
     <div v-el-drag-dialog>
-      <el-dialog title="弹窗" v-model="dialogVisible">
-        <span>这是一个可移动弹窗</span>
+      <el-dialog :title="$t('opt.dialog')" v-model="dialogVisible">
+        <span>{{$t('info.move_dialog')}}</span>
         <template #footer>
           <span class="dialog-footer">
-            <el-button @click="dialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确定</el-button>
+            <el-button @click="dialogVisible = false">{{$t('opt.cancel')}}</el-button>
+            <el-button type="primary" @click="dialogVisible = false">{{$t('opt.confirm')}}</el-button>
           </span>
         </template>
       </el-dialog>
@@ -83,35 +86,35 @@ export default defineComponent({
     const { proxy } = getCurrentInstance()
     //定义router
     const $router = useRouter()
-
     //数据对象
     let data = reactive({
       List: [],
       selectionIdList: [],
+      tableId: proxy.$i18n.locale + 'article-list',
       tableHead: [
         {
-          label: '编号',
+          label: proxy.$t('field.id'),
           prop: 'id',
           width: 60,
         },
         {
-          label: '标题',
+          label: proxy.$t('field.title'),
           prop: 'title',
           width: 300,
         },
         {
-          label: '图片',
+          label: proxy.$t('field.image'),
           prop: 'image',
           render: (row) => {
             return '<img  src="' + row.image + '" class="table-img"/>'
           },
         },
         {
-          label: '作者',
+          label: proxy.$t('field.author'),
           prop: 'author',
         },
         {
-          label: '推荐',
+          label: proxy.$t('field.recommend'),
           prop: 'recommend',
           component: (row) => {
             return row.recommend
@@ -120,7 +123,7 @@ export default defineComponent({
           },
         },
         {
-          label: '置顶',
+          label: proxy.$t('field.top'),
           prop: 'top',
           component: (row) => {
             return row.top
@@ -129,7 +132,7 @@ export default defineComponent({
           },
         },
         {
-          label: '状态',
+          label: proxy.$t('field.status'),
           prop: 'status',
           component: (row) => {
             return row.status
@@ -138,12 +141,12 @@ export default defineComponent({
           },
         },
         {
-          label: '添加时间',
+          label: proxy.$t('field.addtime'),
           prop: 'addtime',
           width: 140,
         },
         {
-          label: '修改时间',
+          label: proxy.$t('field.updatetime'),
           prop: 'updatetime',
           width: 140,
         },
@@ -209,7 +212,7 @@ export default defineComponent({
         .then((res) => {
           data.List.splice(index, 1)
           proxy.$message({
-            message: '删除成功',
+            message: proxy.$t('tips.delete_success'),
             type: 'success',
           })
         })
@@ -218,7 +221,7 @@ export default defineComponent({
 
     const handleDownload = (index, row) => {
       proxy.$message({
-        message: '当前下载行的id是' + row.id,
+        message: proxy.$t('tips.download_info') + row.id,
         type: 'success',
       })
     }
@@ -226,7 +229,7 @@ export default defineComponent({
     const handleDeleteRows = () => {
       if (data.selectionIdList.length == 0) {
         proxy.$message({
-          message: '请选择要删除的数据',
+          message: proxy.$t('tips.select_delete'),
           type: 'error',
         })
         return false
@@ -238,7 +241,7 @@ export default defineComponent({
             (item) => data.selectionIdList.indexOf(item.id) == -1
           )
           proxy.$message({
-            message: '删除成功',
+            message: proxy.$t('tips.delete_success'),
             type: 'success',
             onClose: function () {
               getArticleLst()

@@ -4,42 +4,42 @@
       <el-row type="flex" justify="left">
         <el-col :xs="24" :md="16">
           <el-form ref="ruleFormRef" :rules="rules" :model="ruleForm" label-position="right" label-width="150px">
-            <el-form-item label="标题" prop="title">
-              <el-input v-model="ruleForm.title" placeholder="标题" />
+            <el-form-item :label="$t('field.title')" prop="title">
+              <el-input v-model="ruleForm.title" :placeholder="$t('field.title')" />
             </el-form-item>
-            <el-form-item label="图片" prop="image">
+            <el-form-item :label="$t('field.image')" prop="image">
               <upload :file="ruleForm.image" @handleUploadSuccess="handleUploadSuccess($event)"
                       @handleDeleteFile="ruleForm.image = ''">
               </upload>
             </el-form-item>
-            <el-form-item label="图片列表" prop="image_list">
+            <el-form-item :label="$t('field.image_list')" prop="image_list">
               <upload :files="ruleForm.image_list" multiple
                       @handleUploadMultipleSuccess="handleUploadMultipleSuccess($event)"
                       @handleClickDeleteMultiple="ruleForm.image_list = $event">
               </upload>
             </el-form-item>
-            <el-form-item label="作者" prop="author">
-              <el-input v-model="ruleForm.author" placeholder="作者" />
+            <el-form-item :label="$t('field.author')" prop="author">
+              <el-input v-model="ruleForm.author" :placeholder="$t('field.author')" />
             </el-form-item>
-            <el-form-item label="详情" prop="detail">
+            <el-form-item :label="$t('field.detail')" prop="detail">
               <editor :value="ruleForm.detail" @change="handleChangeEditor($event)">
               </editor>
             </el-form-item>
-            <el-form-item label="推荐" prop="recommend">
+            <el-form-item :label="$t('field.recommend')" prop="recommend">
               <el-switch v-model="ruleForm.recommend" active-color="#13ce66" inactive-color="#ff4949">
               </el-switch>
             </el-form-item>
-            <el-form-item label="置顶" prop="top">
+            <el-form-item :label="$t('field.top')" prop="top">
               <el-switch v-model="ruleForm.top" active-color="#13ce66" inactive-color="#ff4949">
               </el-switch>
             </el-form-item>
-            <el-form-item label="状态" prop="">
+            <el-form-item :label="$t('field.status')" prop="">
               <el-switch v-model="ruleForm.status" active-color="#13ce66" inactive-color="#ff4949">
               </el-switch>
             </el-form-item>
             <el-form-item>
-              <el-button type="success" @click="submitForm()">保存</el-button>
-              <el-button @click="resetForm()">重置</el-button>
+              <el-button type="success" @click="submitForm()">{{$t('opt.save')}}</el-button>
+              <el-button @click="resetForm()">{{$t('opt.reset')}}</el-button>
             </el-form-item>
           </el-form>
         </el-col>
@@ -93,33 +93,33 @@ export default defineComponent({
         title: [
           {
             required: true,
-            message: '请输入标题',
+            message: proxy.$t('tips.input') + proxy.$t('field.title'),
             trigger: 'blur',
           },
         ],
         image: [
           {
             required: true,
-            message: '请上传图片',
+            message: proxy.$t('tips.upload') + proxy.$t('field.image'),
           },
         ],
         image_list: [
           {
             required: true,
-            message: '请上传图片列表',
+            message: proxy.$t('tips.upload') + proxy.$t('field.image_list'),
           },
         ],
         author: [
           {
             required: true,
-            message: '请输入作者',
+            message: proxy.$t('tips.input') + proxy.$t('field.author'),
             trigger: 'blur',
           },
         ],
         detail: [
           {
             required: true,
-            message: '请输入详情',
+            message: proxy.$t('tips.input') + proxy.$t('field.detail'),
           },
         ],
       },
@@ -145,7 +145,7 @@ export default defineComponent({
           articleEdit(data.ruleForm)
             .then((res) => {
               proxy.$message({
-                message: '保存成功',
+                message: proxy.$t('tips.edit_success'),
                 type: 'success',
                 onClose: function () {
                   $router.push('/article/article-list')

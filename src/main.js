@@ -2,13 +2,11 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
-// A modern alternative to CSS resets
+// css 样式重置
 import 'normalize.css/normalize.css'
 //引入element plus
 import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css' 如果要用这个 那么去掉/src/styles/index.scss里的element scss引用
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
 // index scss
 import './styles/index.scss'
 //引入svg
@@ -21,16 +19,19 @@ import './mock'
 import elDragDialog from '@/directive/el-drag-dialog'
 //引入全局变量
 import provide from '@/plugins/provide'
+//引入i18n
+import { i18n, elementPlusLang } from './lang/i18n'
 
 //App对象
 const app = createApp(App)
+
 //使用状态
 app.use(store)
 //使用路由
 app.use(router)
 //使用element plus
 app.use(ElementPlus, {
-  locale: zhCn
+  locale: elementPlusLang
 })
 //使用svg
 app.use(SvgPlugin, {
@@ -40,5 +41,8 @@ app.use(SvgPlugin, {
 app.use(elDragDialog)
 //使用全局变量
 app.use(provide)
+//使用i18n
+app.use(i18n)
+
 //挂载
 app.mount('#app')

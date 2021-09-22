@@ -82,7 +82,8 @@ let getPermissionRouter = Mock.mock({
           name: 'Dashboard',
           component: 'Dashboard',
           meta: {
-            title: '控制台',
+            zh_title: '控制台',
+            en_title: 'Dashboard',
             icon: 'dashboard',
             affix: true
           }
@@ -98,7 +99,8 @@ let getPermissionRouter = Mock.mock({
       alwaysShow: true,
       hidden: false,
       meta: {
-        title: '文章管理',
+        zh_title: '文章管理',
+        en_title: 'Article',
         icon: 'table'
       },
       children: [
@@ -109,7 +111,8 @@ let getPermissionRouter = Mock.mock({
           alwaysShow: false,
           hidden: false,
           meta: {
-            title: '文章列表',
+            zh_title: '文章列表',
+            en_title: 'ArticleList',
             icon: 'table'
           }
         },
@@ -120,7 +123,8 @@ let getPermissionRouter = Mock.mock({
           hidden: true,
           component: 'ArticleAdd',
           meta: {
-            title: '文章添加'
+            zh_title: '文章添加',
+            en_title: 'ArticleAdd'
           }
         },
         {
@@ -130,7 +134,8 @@ let getPermissionRouter = Mock.mock({
           hidden: true,
           component: 'ArticleEdit',
           meta: {
-            title: '文章编辑'
+            zh_title: '文章编辑',
+            en_title: 'ArticleEdit'
           }
         }
       ]
@@ -143,7 +148,8 @@ let getPermissionRouter = Mock.mock({
       alwaysShow: true,
       hidden: false,
       meta: {
-        title: 'nested',
+        zh_title: 'nested',
+        en_title: 'nested',
         icon: 'nested'
       },
       children: [
@@ -155,7 +161,8 @@ let getPermissionRouter = Mock.mock({
           alwaysShow: false,
           hidden: false,
           meta: {
-            title: 'nested-1',
+            zh_title: 'nested-1',
+            en_title: 'nested-1',
             icon: 'nested'
           },
           children: [
@@ -166,7 +173,8 @@ let getPermissionRouter = Mock.mock({
               alwaysShow: false,
               hidden: false,
               meta: {
-                title: 'nested-1-1',
+                zh_title: 'nested1-1',
+                en_title: 'nested1-1',
                 icon: 'nested'
               }
             },
@@ -177,7 +185,8 @@ let getPermissionRouter = Mock.mock({
               alwaysShow: false,
               hidden: false,
               meta: {
-                title: 'nested-1-2',
+                zh_title: 'nested1-2',
+                en_title: 'nested1-2',
                 icon: 'nested'
               }
             }
@@ -190,7 +199,8 @@ let getPermissionRouter = Mock.mock({
           alwaysShow: false,
           hidden: false,
           meta: {
-            title: 'nested-2',
+            zh_title: 'nested-2',
+            en_title: 'nested-2',
             icon: 'nested'
           }
         }
