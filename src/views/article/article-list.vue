@@ -90,7 +90,7 @@ export default defineComponent({
     let data = reactive({
       List: [],
       selectionIdList: [],
-      tableId: proxy.$i18n.locale + 'article-list',
+      tableId: proxy.$i18n.locale + '-article-list',
       tableHead: [
         {
           label: proxy.$t('field.id'),
