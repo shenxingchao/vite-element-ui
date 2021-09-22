@@ -173,8 +173,8 @@ let getPermissionRouter = Mock.mock({
               alwaysShow: false,
               hidden: false,
               meta: {
-                zh_title: 'nested1-1',
-                en_title: 'nested1-1',
+                zh_title: 'nested-1-1',
+                en_title: 'nested-1-1',
                 icon: 'nested'
               }
             },
@@ -185,8 +185,8 @@ let getPermissionRouter = Mock.mock({
               alwaysShow: false,
               hidden: false,
               meta: {
-                zh_title: 'nested1-2',
-                en_title: 'nested1-2',
+                zh_title: 'nested-1-2',
+                en_title: 'nested-1-2',
                 icon: 'nested'
               }
             }
