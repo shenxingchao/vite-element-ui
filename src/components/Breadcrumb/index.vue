@@ -42,7 +42,7 @@ export default defineComponent({
         matched = [
           {
             path: '/dashboard',
-            meta: { title: '控制台' },
+            meta: { title: localStorage.lang == 'zh' ? '控制台' : 'Dashboard' },
           },
         ].concat(matched)
       }

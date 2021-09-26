@@ -11,7 +11,7 @@
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>{{$t('opt.current_version')}}：{{app_version}}</span>
+        <span>{{$t('info.current_version')}}：{{app_version}}</span>
       </div>
       <div class="drawer-item">
         <span>©github.com/shenxingchao</span>
