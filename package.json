@@ -9,7 +9,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^4.0.4",
     "axios": "0.18.1",
-    "element-plus": "^1.1.0-beta.15",
+    "element-plus": "^1.1.0-beta.16",
     "fuse.js": "^6.4.1",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
@@ -19,13 +19,13 @@
     "screenfull": "^5.0.2",
     "sortablejs": "^1.10.2",
     "tinymce": "^5.9.2",
-    "vue": "^3.2.16",
+    "vue": "3.2.19",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.1",
-    "@vue/compiler-sfc": "^3.2.16",
+    "@vitejs/plugin-vue": "^1.9.2",
+    "@vue/compiler-sfc": "^3.2.19",
     "autoprefixer": "^10.3.5",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
