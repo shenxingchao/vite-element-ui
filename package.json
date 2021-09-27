@@ -9,7 +9,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^4.0.4",
     "axios": "0.18.1",
-    "element-plus": "^1.1.0-beta.16",
+    "element-plus": "^1.1.0-beta.17",
     "fuse.js": "^6.4.1",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.2",
     "@vue/compiler-sfc": "^3.2.19",
-    "autoprefixer": "^10.3.5",
+    "autoprefixer": "^10.3.6",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
