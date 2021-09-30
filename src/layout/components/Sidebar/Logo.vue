@@ -30,7 +30,7 @@ export default defineComponent({
     //数据对象
     let data = reactive({
       title: import.meta.env.VITE_APP_NAME,
-      logo: 'https://vue3js.cn/docs/logo.png',
+      logo: 'https://v3.cn.vuejs.org/logo.png',
     })
 
     return {
