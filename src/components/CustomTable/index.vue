@@ -4,13 +4,19 @@
       <slot v-if="showSearch" name="searchBar"></slot>
       <el-dropdown v-if="showFilter" class="filter">
         <el-button type="primary" size="mini">
-          筛选<i class="el-icon-arrow-down el-icon--right"></i>
+          <span style="vertical-align: middle;"> 筛选 </span>
+          <el-icon style="vertical-align: middle;">
+            <arrow-down />
+          </el-icon>
         </el-button>
         <template #dropdown>
           <el-dropdown-menu>
             <div class="clear-btn-box">
-              <el-button size="mini" icon="el-icon-refresh" type="primary" @click="handleClickClearCache">
-                清除缓存
+              <el-button size="mini" type="primary" @click="handleClickClearCache">
+                <el-icon style="vertical-align: middle;">
+                  <refresh />
+                </el-icon>
+                <span style="vertical-align: middle;"> 清除缓存 </span>
               </el-button>
             </div>
             <el-checkbox v-model="checkAll" class="check-column-item" :indeterminate="isIndeterminate"
@@ -50,10 +56,16 @@
       <!-- 操作列 -->
       <el-table-column v-if="showOpt" align="center" label="操作" :min-width="optWidth">
         <template v-slot="scope">
-          <el-button size="mini" icon="el-icon-edit" type="primary" @click.stop="handleEdit(scope.$index, scope.row)">
+          <el-button size="mini" type="primary" @click.stop="handleEdit(scope.$index, scope.row)">
+            <el-icon>
+              <edit />
+            </el-icon>
           </el-button>
-          <el-button size="mini" icon="el-icon-delete" type="danger"
-                     @click.stop="handleDelete(scope.$index, scope.row)"></el-button>
+          <el-button size="mini" type="danger" @click.stop="handleDelete(scope.$index, scope.row)">
+            <el-icon>
+              <delete />
+            </el-icon>
+          </el-button>
           <slot :scope="scope" name="opt">
           </slot>
         </template>

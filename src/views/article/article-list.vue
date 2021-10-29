@@ -30,19 +30,45 @@
               </el-select>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-              <el-button icon="el-icon-refresh-left" @click="onReset();onSubmit()">重置
+              <el-button type="primary" @click="onSubmit">
+                <el-icon style="vertical-align: middle;margin-right:4px;">
+                  <search />
+                </el-icon>
+                <span style="vertical-align: middle;"> 查询 </span>
               </el-button>
-              <el-button type="primary" icon="el-icon-plus" size="mini" @click="$router.push('/article/article-add')">添加
+              <el-button @click="onReset();onSubmit()">
+                <el-icon style="vertical-align: middle;margin-right:4px;">
+                  <refresh-left />
+                </el-icon>
+                <span style="vertical-align: middle;"> 重置 </span>
               </el-button>
-              <el-button type="danger" icon="el-icon-delete" size="mini" @click="handleDeleteRows">删除</el-button>
-              <el-button type="warning" icon="el-icon-rank" @click="dialogVisible = true">这是一个可移动弹窗</el-button>
+              <el-button type="primary" size="mini" @click="$router.push('/article/article-add')">
+                <el-icon style="vertical-align: middle;margin-right:4px;">
+                  <plus />
+                </el-icon>
+                <span style="vertical-align: middle;"> 添加 </span>
+              </el-button>
+              <el-button type="danger" size="mini" @click="handleDeleteRows">
+                <el-icon style="vertical-align: middle;margin-right:4px;">
+                  <delete />
+                </el-icon>
+                <span style="vertical-align: middle;"> 删除 </span>
+              </el-button>
+              <el-button type="warning" @click="dialogVisible = true">
+                <el-icon style="vertical-align: middle;margin-right:4px;">
+                  <rank />
+                </el-icon>
+                <span style="vertical-align: middle;"> 这是一个可移动弹窗 </span>
+              </el-button>
             </el-form-item>
           </el-form>
         </template>
         <template v-slot:opt="slotProps">
-          <el-button size="mini" icon="el-icon-download" type="warning"
+          <el-button size="mini" type="warning"
                      @click.stop="handleDownload(slotProps.scope.$index, slotProps.scope.row)">
+            <el-icon>
+              <download />
+            </el-icon>
           </el-button>
         </template>
       </custom-table>

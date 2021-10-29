@@ -5,8 +5,11 @@
       <router-link v-for="tag in visitedViews" :ref="setTagRef" :key="tag.path" :class="isActive(tag)?'active':''"
                    :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" tag="span" class="tags-view-item"
                    @click.middle="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent="openMenu(tag,$event)">
-        {{ tag.title }}
-        <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
+        <span style="vertical-align: middle;"> {{ tag.title }} </span>
+        <el-icon v-if="!isAffix(tag)" class="icon" @click.prevent.stop="closeSelectedTag(tag)"
+                 style="margin-left:4px;vertical-align: middle;">
+          <close />
+        </el-icon>
       </router-link>
     </el-scrollbar>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
@@ -370,6 +373,7 @@ export default defineComponent({
           content: '';
           background: #fff;
           display: inline-block;
+          vertical-align: middle;
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -407,20 +411,15 @@ export default defineComponent({
 //reset element css of el-icon-close
 .tags-view-wrapper {
   .tags-view-item {
-    .el-icon-close {
+    .icon {
       width: 16px;
       height: 16px;
-      vertical-align: -3px;
+      line-height: 21px;
       border-radius: 50%;
       text-align: center;
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       transform-origin: 100% 50%;
-      font-size: 16px;
-      &:before {
-        transform: scale(0.6);
-        display: inline-block;
-        vertical-align: 1px;
-      }
+      font-size: 12px;
       &:hover {
         background-color: $h3c;
         color: #fff;

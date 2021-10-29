@@ -2,8 +2,13 @@
   <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
     <div class="rightPanel-background" />
     <div class="rightPanel">
-      <div class="handle-button" :style="{'bottom':buttonBottom+'px'}" @click="show=!show">
-        <i :class="show?'el-icon-close':'el-icon-setting'" />
+      <div class="handle-button" :style="{'bottom':buttonBottom+'px'}" @click.stop="show=!show">
+        <el-icon v-if="show" style="vertical-align: middle;">
+          <close />
+        </el-icon>
+        <el-icon v-else style="vertical-align: middle;">
+          <setting />
+        </el-icon>
       </div>
       <div class="rightPanel-items">
         <slot />
@@ -161,7 +166,6 @@ export default defineComponent({
   background: $theme;
   i {
     font-size: 24px;
-    line-height: 48px;
   }
 }
 </style>
