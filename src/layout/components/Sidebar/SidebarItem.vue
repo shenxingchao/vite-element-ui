@@ -28,13 +28,11 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import path from 'path-browserify'
 import { isExternal } from '@/utils/validate'
-import Item from './Item.vue'
 import AppLink from './Link.vue'
 
 export default defineComponent({
   name: 'SidebarItem',
   components: {
-    Item,
     AppLink,
   },
   props: {

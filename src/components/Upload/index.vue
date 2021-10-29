@@ -4,11 +4,15 @@
       <div v-if="imgUrl" class="uplaod-file-preview" @mouseenter="isShowOpt = true" @mouseleave="isShowOpt = false">
         <img :src="imgUrl" alt="上传成功图片" />
         <div v-show="isShowOpt" class="opt">
-          <i class="el-icon-delete delete-btn" @click="handleClickDelete()"></i>
+          <el-icon class="delete-btn" @click="handleClickDelete()">
+            <delete />
+          </el-icon>
         </div>
       </div>
       <div v-if="!imgUrl" class="upload-file-btn" @click="$refs.file.click()">
-        <i class="el-icon-plus"></i>
+        <el-icon>
+          <plus />
+        </el-icon>
         <input ref="file" type="file" class="upload-file-input" :accept="fileType"
                @change="handleUploadFile($event.target.files[0])" />
       </div>
@@ -18,11 +22,15 @@
            @mouseleave="item.isShowMask = false">
         <img :src="item.url" alt="上传成功图片" />
         <div v-show="item.isShowMask" class="opt">
-          <i class="el-icon-delete delete-btn" @click="handleClickDeleteMultiple(index)"></i>
+          <el-icon class="delete-btn" @click="handleClickDeleteMultiple(index)">
+            <delete />
+          </el-icon>
         </div>
       </div>
       <div v-if="imgList.length < limit" class="upload-file-btn" @click="$refs.files.click()">
-        <i class="el-icon-plus"></i>
+        <el-icon>
+          <plus />
+        </el-icon>
         <input ref="files" type="file" class="upload-file-input" :accept="fileType" :multiple="multiple"
                @change="handleUploadFiles($event.target.files)" />
       </div>

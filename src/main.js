@@ -19,6 +19,8 @@ import './mock'
 import elDragDialog from '@/directive/el-drag-dialog'
 //引入全局变量
 import provide from '@/plugins/provide'
+//引入全局组件：elIcon
+import componentInstall from '@/plugins/componentInstall'
 //引入i18n
 import { i18n, elementPlusLang } from './lang/i18n'
 
@@ -41,6 +43,8 @@ app.use(SvgPlugin, {
 app.use(elDragDialog)
 //使用全局变量
 app.use(provide)
+//使用全局组件
+app.use(componentInstall)
 //使用i18n
 app.use(i18n)
 

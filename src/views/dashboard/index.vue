@@ -7,7 +7,9 @@
         <el-row class="item-box item-box-one" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-goods"></i>
+              <el-icon class="icon">
+                <goods />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
@@ -26,7 +28,9 @@
         <el-row class="item-box item-box-two" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-document"></i>
+              <el-icon class="icon">
+                <document />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
@@ -45,7 +49,9 @@
         <el-row class="item-box item-box-three" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-picture-outline"></i>
+              <el-icon class="icon">
+                <picture-rounded />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
@@ -64,7 +70,9 @@
         <el-row class="item-box item-box-four" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-link"></i>
+              <el-icon class="icon">
+                <link />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
@@ -83,7 +91,9 @@
         <el-row class="item-box item-box-fine" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-lollipop"></i>
+              <el-icon class="icon">
+                <lollipop />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
@@ -102,7 +112,9 @@
         <el-row class="item-box item-box-six" type="flex">
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
-              <i class="icon el-icon-timer"></i>
+              <el-icon class="icon">
+                <timer />
+              </el-icon>
             </el-row>
           </el-col>
           <el-col class="item-box-right" :span="16">
