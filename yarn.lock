@@ -128,10 +128,10 @@
   resolved "https://registry.nlark.com/@tinymce/tinymce-vue/download/@tinymce/tinymce-vue-4.0.4.tgz?cache=0&sync_timestamp=1629946721021&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tinymce%2Ftinymce-vue%2Fdownload%2F%40tinymce%2Ftinymce-vue-4.0.4.tgz#b47934f2d1e106ac9af7fa9ba0316a8c96ed314c"
   integrity sha1-tHk08tHhBqya9/qboDFqjJbtMUw=
 
-"@vitejs/plugin-vue@^1.9.3":
-  version "1.9.3"
-  resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.9.3.tgz#93d61893ce6c723d0209af0483ec8b91a2cd811f"
-  integrity sha1-k9YYk85scj0CCa8Eg+yLkaLNgR8=
+"@vitejs/plugin-vue@^1.9.4":
+  version "1.9.4"
+  resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.9.4.tgz?cache=0&sync_timestamp=1635475280393&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40vitejs%2Fplugin-vue%2Fdownload%2F%40vitejs%2Fplugin-vue-1.9.4.tgz#4f48485432cbb986a9fb9d254dc33ce30ddccbfa"
+  integrity sha1-T0hIVDLLuYap+50lTcM84w3cy/o=
 
 "@vue/compiler-core@3.2.19":
   version "3.2.19"
@@ -291,18 +291,18 @@
   resolved "https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.20.tgz?cache=0&sync_timestamp=1633712593357&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fshared%2Fdownload%2F%40vue%2Fshared-3.2.20.tgz#53746961f731a8ea666e3316271e944238dc31db"
   integrity sha1-U3RpYfcxqOpmbjMWJx6UQjjcMds=
 
-"@vueuse/core@~6.1.0":
-  version "6.1.0"
-  resolved "https://registry.nlark.com/@vueuse/core/download/@vueuse/core-6.1.0.tgz#8137c291cf49b11c2deda4d5079096e55b36fc28"
-  integrity sha1-gTfCkc9JsRwt7aTVB5CW5Vs2/Cg=
+"@vueuse/core@^6.7.3":
+  version "6.7.4"
+  resolved "https://registry.npmmirror.com/@vueuse/core/download/@vueuse/core-6.7.4.tgz?cache=0&sync_timestamp=1635386303702&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40vueuse%2Fcore%2Fdownload%2F%40vueuse%2Fcore-6.7.4.tgz#8e15524454388b11c9eb6ff59a6742602b976e2f"
+  integrity sha1-jhVSRFQ4ixHJ62/1mmdCYCuXbi8=
   dependencies:
-    "@vueuse/shared" "6.1.0"
+    "@vueuse/shared" "6.7.4"
     vue-demi "*"
 
-"@vueuse/shared@6.1.0":
-  version "6.1.0"
-  resolved "https://registry.nlark.com/@vueuse/shared/download/@vueuse/shared-6.1.0.tgz#1375fd41acefe52f9a1842f3c6a8a348786535ba"
-  integrity sha1-E3X9Qazv5S+aGELzxqijSHhlNbo=
+"@vueuse/shared@6.7.4":
+  version "6.7.4"
+  resolved "https://registry.npmmirror.com/@vueuse/shared/download/@vueuse/shared-6.7.4.tgz?cache=0&sync_timestamp=1635386600577&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40vueuse%2Fshared%2Fdownload%2F%40vueuse%2Fshared-6.7.4.tgz#9aa2967d20863cf3253afd08a2e6e84a61d2c89b"
+  integrity sha1-mqKWfSCGPPMlOv0IouboSmHSyJs=
   dependencies:
     vue-demi "*"
 
@@ -380,7 +380,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.npm.taobao.org/astral-regex/download/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha1-SDFDxWeu7UeFdZwIZXhtx319LjE=
 
-async-validator@^4.0.3:
+async-validator@^4.0.7:
   version "4.0.7"
   resolved "https://registry.npmmirror.com/async-validator/download/async-validator-4.0.7.tgz?cache=0&sync_timestamp=1634529574100&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fasync-validator%2Fdownload%2Fasync-validator-4.0.7.tgz#034a0fd2103a6b2ebf010da75183bec299247afe"
   integrity sha1-A0oP0hA6ay6/AQ2nUYO+wpkkev4=
@@ -572,20 +572,19 @@ electron-to-chromium@^1.3.878:
   resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.879.tgz?cache=0&sync_timestamp=1635228198620&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.879.tgz#4aba9700cfb241fb95c6ed69e31785e3d1605a43"
   integrity sha1-SrqXAM+yQfuVxu1p4xeF49FgWkM=
 
-element-plus@^1.1.0-beta.24:
-  version "1.1.0-beta.24"
-  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.1.0-beta.24.tgz#858b05932ebc0be15419d3974d15be2a4f4b696c"
-  integrity sha1-hYsFky68C+FUGdOXTRW+Kk9LaWw=
+element-plus@^1.2.0-beta.1:
+  version "1.2.0-beta.1"
+  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.2.0-beta.1.tgz#77bfd993741be1731540dd997dbde0d03d065b5e"
+  integrity sha1-d7/Zk3Qb4XMVQN2Zfb3g0D0GW14=
   dependencies:
     "@element-plus/icons" "^0.0.11"
     "@popperjs/core" "^2.10.2"
-    "@vueuse/core" "~6.1.0"
-    async-validator "^4.0.3"
+    "@vueuse/core" "^6.7.3"
+    async-validator "^4.0.7"
     dayjs "^1.10.7"
     lodash "^4.17.21"
-    memoize-one "^5.2.1"
+    memoize-one "^6.0.0"
     normalize-wheel-es "^1.1.0"
-    resize-observer-polyfill "^1.5.1"
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -1156,10 +1155,10 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.4"
 
-memoize-one@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.nlark.com/memoize-one/download/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
-  integrity sha1-gzeqPEM1WBg57AHD1ZQJDOvo8A4=
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmmirror.com/memoize-one/download/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
+  integrity sha1-slkbhx7YKUiu5HJ9xqvO7qyMEEU=
 
 minimatch@^3.0.4:
   version "3.0.4"
@@ -1389,11 +1388,6 @@ require-from-string@^2.0.2:
   resolved "https://registry.nlark.com/require-from-string/download/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha1-iaf92TgmEmcxjq/hT5wy5ZjDaQk=
 
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.nlark.com/resize-observer-polyfill/download/resize-observer-polyfill-1.5.1.tgz?cache=0&sync_timestamp=1618846967396&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fresize-observer-polyfill%2Fdownload%2Fresize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
-
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.nlark.com/resolve-from/download/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
@@ -1587,10 +1581,10 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.nlark.com/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
 
-vite@^2.6.11:
-  version "2.6.11"
-  resolved "https://registry.npmmirror.com/vite/download/vite-2.6.11.tgz#20d3d8f4b4fe38904a2e425356aab1cb23325e12"
-  integrity sha1-INPY9LT+OJBKLkJTVqqxyyMyXhI=
+vite@^2.6.13:
+  version "2.6.13"
+  resolved "https://registry.npmmirror.com/vite/download/vite-2.6.13.tgz?cache=0&sync_timestamp=1635502330565&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvite%2Fdownload%2Fvite-2.6.13.tgz#16b3ec85a66d5b461ac29a903874d4357f9af432"
+  integrity sha1-FrPshaZtW0YawpqQOHTUNX+a9DI=
   dependencies:
     esbuild "^0.13.2"
     postcss "^8.3.8"
