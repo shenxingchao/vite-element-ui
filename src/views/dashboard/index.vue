@@ -71,7 +71,7 @@
           <el-col class="item-box-left" :span="8">
             <el-row class="item-box-left-item" justify="center" align="middle" type="flex">
               <el-icon class="icon">
-                <link />
+                <top-right />
               </el-icon>
             </el-row>
           </el-col>
