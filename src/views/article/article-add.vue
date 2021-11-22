@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card shadow="hover">
-      <el-row type="flex" justify="left">
+      <el-row type="flex" justify="start">
         <el-col :xs="24" :md="16">
           <el-form ref="ruleFormRef" :rules="rules" :model="ruleForm" label-position="right" label-width="150px">
             <el-form-item :label="$t('field.title')" prop="title">
