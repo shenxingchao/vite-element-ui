@@ -1,4 +1,12 @@
-// value
+/* 只需要重写你需要的即可 */
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": (
+      "base": #2d8cf0,
+    ),
+  ),
+);
+
 $theme: #2d8cf0;
 $deep-theme: #277bcf;
 $h1c: #333333;
