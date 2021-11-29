@@ -81,7 +81,7 @@ export default defineComponent({
     })
 
     const scrollWrapper = computed(() => {
-      return scrollContainer.value.$refs.wrap
+      return scrollContainer.value.$refs.wrap$
     })
 
     watch($route, () => {
