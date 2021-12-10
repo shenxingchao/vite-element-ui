@@ -6,9 +6,9 @@
                     @handleSelectionChange="handleSelectionChange" @handleRowDblClick="handleRowDblClick"
                     @handleEdit="handleEdit" @handleDelete="handleDelete">
         <template v-slot:searchBar>
-          <el-form ref="searchForm" :inline="true" :model="params" class="demo-form-inline" size="mini">
+          <el-form ref="searchForm" :inline="true" :model="params" class="demo-form-inline" size="mini" @submit.prevent>
             <el-form-item prop="keyword">
-              <el-input v-model="params.keyword" placeholder="搜索关键词" />
+              <el-input v-model="params.keyword" placeholder="搜索关键词" @keyup.enter="onSubmit()" />
             </el-form-item>
             <el-form-item prop="recommend">
               <el-select v-model="params.recommend" placeholder="推荐" clearable>
