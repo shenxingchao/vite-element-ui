@@ -7,6 +7,7 @@ const en = {
     close_other: 'Close Other',
     close_all: 'Close All',
     log_out: 'Log Out',
+    theme_color: 'Change Color',
     open_tags: 'Open Tags',
     fixed_header: 'Fixed Header',
     sidebar_logo: 'Sidebar Logo',

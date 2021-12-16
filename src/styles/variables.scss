@@ -1,14 +1,88 @@
 /* 只需要重写你需要的即可 */
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
-  $colors: (
-    "primary": (
-      "base": #2d8cf0,
-    ),
-  ),
-);
+// @forward "element-plus/theme-chalk/src/common/var.scss" with (
+//   $colors: (
+//     "primary": (
+//       "base": #2d8cf0,
+//     ),
+//   ),
+// );
 
-$theme: #2d8cf0;
-$deep-theme: #277bcf;
+/* 此文件要在element主样式文件之后引入 */
+/* 用了这种方法后，你不需要重写任何elementplus组件的颜色 */
+
+:root {
+  // 这里可以设置你自定义的颜色变量
+  // 这个是element主要按钮:active的颜色，当主题更改后此变量的值也随之更改
+  --el-color-primary-dark: #277bcf;
+}
+
+/* 核心组件的变量，下面这些样式是必须要写的 */
+
+.el-link.el-link--primary:hover {
+  color: var(--el-color-primary-light-2) !important;
+}
+.el-tag {
+  --el-tag-bg-color: var(--el-color-primary-light-9);
+  --el-tag-border-color: var(--el-color-primary-light-8);
+  --el-tag-text-color: var(--el-color-primary);
+  --el-tag-hover-color: var(--el-color-primary);
+}
+.el-tag.el-tag--danger {
+  --el-tag-bg-color: var(--el-color-danger-lighter);
+  --el-tag-border-color: var(--el-color-danger-light);
+  --el-tag-text-color: var(--el-color-danger);
+  --el-tag-hover-color: var(--el-color-danger);
+}
+.el-tag.el-tag--warning {
+  --el-tag-bg-color: var(--el-color-warning-lighter);
+  --el-tag-border-color: var(--el-color-warning-light);
+  --el-tag-text-color: var(--el-color-warning);
+  --el-tag-hover-color: var(--el-color-warning);
+}
+.el-tag.el-tag--success {
+  --el-tag-bg-color: var(--el-color-success-lighter);
+  --el-tag-border-color: var(--el-color-success-light);
+  --el-tag-text-color: var(--el-color-success);
+  --el-tag-hover-color: var(--el-color-success);
+}
+.el-tag.el-tag--info {
+  --el-tag-bg-color: var(--el-color-info-lighter);
+  --el-tag-border-color: var(--el-color-info-light);
+  --el-tag-text-color: var(--el-color-info);
+  --el-tag-hover-color: var(--el-color-info);
+}
+
+.el-button--default:active {
+  color: var(--el-color-primary-dark) !important;
+  border-color: var(--el-color-primary-dark) !important;
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--el-color-primary) !important;
+  --el-button-border-color: var(--el-color-primary) !important;
+  --el-button-hover-bg-color: var(--el-color-primary-light-2) !important;
+  --el-button-hover-border-color: var(--el-color-primary-light-2) !important;
+  --el-button-active-bg-color: var(--el-color-primary-dark) !important;
+  --el-button-active-border-color: var(--el-color-primary-dark) !important;
+}
+
+// 你也可以降nProgress的颜色改成element主色调
+#nprogress {
+  & .bar {
+    background-color: var(--el-color-primary) !important;
+  }
+  & .peg {
+    box-shadow: 0 0 10px var(--el-color-primary),
+      0 0 5px var(--el-color-primary) !important;
+  }
+  & .spinner-icon {
+    border-top-color: var(--el-color-primary);
+    border-left-color: var(--el-color-primary);
+  }
+}
+
+$theme: var(--el-color-primary);
+$deep-theme: var(--el-color-primary-dark);
 $h1c: #333333;
 $h2c: #555555;
 $h3c: #777777;

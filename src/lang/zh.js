@@ -7,6 +7,7 @@ const zh = {
     close_other: '关闭其他',
     close_all: '关闭所有',
     log_out: '退出登录',
+    theme_color: '主题色',
     open_tags: '标签页',
     fixed_header: '头部固定',
     sidebar_logo: '侧边栏Logo',
