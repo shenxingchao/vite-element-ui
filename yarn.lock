@@ -28,6 +28,11 @@
   resolved "https://registry.nlark.com/@babel/parser/download/@babel/parser-7.15.3.tgz#3416d9bea748052cfcb63dbcc27368105b1ed862"
   integrity sha1-NBbZvqdIBSz8tj28wnNoEFse2GI=
 
+"@element-plus/icons-vue@^0.2.2":
+  version "0.2.4"
+  resolved "https://registry.npmmirror.com/@element-plus/icons-vue/download/@element-plus/icons-vue-0.2.4.tgz#dadcf72f0cea53dc83b7b7db80e1418716d7b02c"
+  integrity sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==
+
 "@element-plus/icons@^0.0.11":
   version "0.0.11"
   resolved "https://registry.nlark.com/@element-plus/icons/download/@element-plus/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
@@ -511,12 +516,12 @@ electron-to-chromium@^1.3.878:
   resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.879.tgz?cache=0&sync_timestamp=1635228198620&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.879.tgz#4aba9700cfb241fb95c6ed69e31785e3d1605a43"
   integrity sha1-SrqXAM+yQfuVxu1p4xeF49FgWkM=
 
-element-plus@^1.2.0-beta.5:
-  version "1.2.0-beta.5"
-  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.2.0-beta.5.tgz#ef4498c2d051a122cf5898189f4215129bb368bb"
-  integrity sha512-8KNGsNZ6RjVJ7kmxq/WLeTBMhVxSjfaGdW2QdcdXz4km1MgxbyBfdiNGVQG4XH/n+hbtLFldCPw0mVT4vkncuA==
+element-plus@^1.2.0-beta.6:
+  version "1.2.0-beta.6"
+  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.2.0-beta.6.tgz#9fa01a06950eb0380f0454cb75aefaaf5b81b043"
+  integrity sha512-8EdSIR/5/FHcSB8w1diAh+gJMHgxIvxuZoayY99k6taAR1QyEFHuPTgFccZLopJ1+iP4UEsZFz49l57qS08Utw==
   dependencies:
-    "@element-plus/icons" "^0.0.11"
+    "@element-plus/icons-vue" "^0.2.2"
     "@popperjs/core" "^2.10.2"
     "@vueuse/core" "^7.0.0"
     async-validator "^4.0.7"

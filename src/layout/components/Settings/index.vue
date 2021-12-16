@@ -3,6 +3,10 @@
     <div>
       <h3 class="drawer-title">页面设置</h3>
       <div class="drawer-item">
+        <span>主题色</span>
+        <custom-theme></custom-theme>
+      </div>
+      <div class="drawer-item">
         <span>标签页</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
@@ -23,9 +27,12 @@
 <script>
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
+import CustomTheme from '@/components/CustomTheme/index.vue'
 
 export default defineComponent({
-  components: {},
+  components: {
+    CustomTheme,
+  },
   setup() {
     const $store = useStore()
 
@@ -87,8 +94,13 @@ export default defineComponent({
     padding: 12px 0;
   }
 
-  .drawer-switch {
-    float: right;
+  .drawer-item {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>
