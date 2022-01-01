@@ -3,7 +3,7 @@
     <div v-if="showFilter||showSearch" class="check-cloumn-container">
       <slot v-if="showSearch" name="searchBar"></slot>
       <el-dropdown v-if="showFilter" class="filter">
-        <el-button type="primary" size="mini">
+        <el-button type="primary">
           <span style="vertical-align: middle;"> 筛选 </span>
           <el-icon style="vertical-align: middle;">
             <arrow-down />
@@ -12,7 +12,7 @@
         <template #dropdown>
           <el-dropdown-menu>
             <div class="clear-btn-box">
-              <el-button size="mini" type="primary" @click="handleClickClearCache">
+              <el-button type="primary" @click="handleClickClearCache">
                 <el-icon style="vertical-align: middle;">
                   <refresh />
                 </el-icon>
@@ -32,9 +32,9 @@
       </el-dropdown>
     </div>
     <el-table :id="id" :key="key" ref="multipleTable" :data="data" :row-key="hanldeRowKey" border fit default-expand-all
-              size="mini" tooltip-effect="dark" style="width: 100%" @header-dragend="handleHeaderDrag"
-              @row-click="handleRowClick" @select="handleSelect" @select-all="handleSelectAll"
-              @selection-change="handleSelectionChange" @row-dblclick="handleRowDblClick">
+              tooltip-effect="dark" style="width: 100%" @header-dragend="handleHeaderDrag" @row-click="handleRowClick"
+              @select="handleSelect" @select-all="handleSelectAll" @selection-change="handleSelectionChange"
+              @row-dblclick="handleRowDblClick">
       <!-- 多选框checkbox -->
       <el-table-column v-if="showSelection" type="selection" width="55">
       </el-table-column>
@@ -56,12 +56,12 @@
       <!-- 操作列 -->
       <el-table-column v-if="showOpt" align="center" label="操作" :min-width="optWidth">
         <template v-slot="scope">
-          <el-button size="mini" type="primary" @click.stop="handleEdit(scope.$index, scope.row)">
+          <el-button type="primary" @click.stop="handleEdit(scope.$index, scope.row)">
             <el-icon>
               <edit />
             </el-icon>
           </el-button>
-          <el-button size="mini" type="danger" @click.stop="handleDelete(scope.$index, scope.row)">
+          <el-button type="danger" @click.stop="handleDelete(scope.$index, scope.row)">
             <el-icon>
               <delete />
             </el-icon>
