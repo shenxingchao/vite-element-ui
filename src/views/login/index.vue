@@ -140,7 +140,6 @@ $cursor: $theme;
 .login-container {
   .el-input {
     display: inline-block;
-    height: 40px;
     width: 85%;
     input {
       color: $h1c !important;
