@@ -232,7 +232,7 @@ $dark_gray: #889aa4;
   .show-pwd {
     position: absolute;
     right: 10px;
-    top: 7px;
+    top: 0;
     font-size: 16px;
     color: $dark_gray;
     cursor: pointer;

@@ -7,7 +7,7 @@
         <search id="header-search" class="right-menu-item" />
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
-      <el-dropdown class="avatar-container" trigger="click">
+      <el-dropdown class="avatar-container" trigger="hover" @command="handleCommand">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" />
           <el-icon>
@@ -22,7 +22,7 @@
             <a target="_blank" href="https://github.com/shenxingchao/vite-element-ui">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout">
+            <el-dropdown-item divided command="logout">
               <span style="display:block;">退出登录</span>
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -67,9 +67,15 @@ export default defineComponent({
       $router.push(`/login?redirect=${route.fullPath}`)
     }
 
+    const handleCommand = (command) => {
+      if (command == 'logout') {
+        logout()
+      }
+    }
+
     return {
       toggleSideBar,
-      logout,
+      handleCommand,
     }
   },
 })
