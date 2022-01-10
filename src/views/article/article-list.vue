@@ -6,7 +6,7 @@
                     @handleSelectionChange="handleSelectionChange" @handleRowDblClick="handleRowDblClick"
                     @handleEdit="handleEdit" @handleDelete="handleDelete">
         <template v-slot:searchBar>
-          <el-form ref="searchForm" :inline="true" :model="params" class="demo-form-inline" size="mini" @submit.prevent>
+          <el-form ref="searchForm" :inline="true" :model="params" class="demo-form-inline" @submit.prevent>
             <el-form-item prop="keyword">
               <el-input v-model="params.keyword" :placeholder="$t('field.keyword')" @keyup.enter="onSubmit()" />
             </el-form-item>
@@ -42,13 +42,13 @@
                 </el-icon>
                 <span style="vertical-align: middle;"> {{$t('opt.reset')}} </span>
               </el-button>
-              <el-button type="primary" size="mini" @click="$router.push('/article/article-add')">
+              <el-button type="primary" @click="$router.push('/article/article-add')">
                 <el-icon style="vertical-align: middle;margin-right:4px;">
                   <plus />
                 </el-icon>
                 <span style="vertical-align: middle;"> {{$t('opt.add')}} </span>
               </el-button>
-              <el-button type="danger" size="mini" @click="handleDeleteRows">
+              <el-button type="danger" @click="handleDeleteRows">
                 <el-icon style="vertical-align: middle;margin-right:4px;">
                   <delete />
                 </el-icon>
@@ -64,8 +64,7 @@
           </el-form>
         </template>
         <template v-slot:opt="slotProps">
-          <el-button size="mini" type="warning"
-                     @click.stop="handleDownload(slotProps.scope.$index, slotProps.scope.row)">
+          <el-button type="warning" @click.stop="handleDownload(slotProps.scope.$index, slotProps.scope.row)">
             <el-icon>
               <download />
             </el-icon>

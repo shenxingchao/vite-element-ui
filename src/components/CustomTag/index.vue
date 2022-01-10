@@ -1,8 +1,8 @@
 <template>
-  <el-tag :type="type" size="mini">{{title}}</el-tag>
+  <el-tag :type="type">{{title}}</el-tag>
 </template>
 <script>
-import { defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'CustomTag',
   components: {},
