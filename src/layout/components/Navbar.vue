@@ -7,7 +7,7 @@
         <search id="header-search" class="right-menu-item" />
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
-      <el-dropdown class="avatar-container" trigger="hover" @command="handleCommand">
+      <el-dropdown class="avatar-container" trigger="hover" placement="bottom-start" @command="handleCommand">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" />
           <el-icon>
