@@ -72,8 +72,8 @@
         </template>
       </custom-table>
     </el-card>
-    <div v-el-drag-dialog>
-      <el-dialog title="弹窗" v-model="dialogVisible">
+    <div>
+      <el-dialog title="弹窗" v-model="dialogVisible" :draggable="true">
         <span>这是一个可移动弹窗</span>
         <template #footer>
           <span class="dialog-footer">

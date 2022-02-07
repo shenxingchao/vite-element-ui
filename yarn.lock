@@ -240,9 +240,9 @@
   resolved "https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.23.tgz#e885a2ba099d40b69d5461157f3ade31e46a09a9"
   integrity sha512-U+/Jefa0QfXUF2qVy9Dqlrb6HKJSr9/wJcM66wXmWcTOoqg7hOWzF4qruDle51pyF4x3wMn6TSH54UdjKjCKMA==
 
-"@vueuse/core@^7.5.4":
+"@vueuse/core@^7.5.5":
   version "7.5.5"
-  resolved "https://registry.npmmirror.com/@vueuse/core/download/@vueuse/core-7.5.5.tgz#c2f2a8783de0884acfb0be25e71ec3c6d1f9c42e"
+  resolved "https://registry.npmmirror.com/@vueuse/core/-/core-7.5.5.tgz#c2f2a8783de0884acfb0be25e71ec3c6d1f9c42e"
   integrity sha512-RBDqmIoGfak4h3xdXa/Av+ibkb8NY044wEy6+PG2FAWNaID8/FkqmSFjbxogrbmpSX1yZ1PBHrM8DUp/FrIpbg==
   dependencies:
     "@vueuse/shared" "7.5.5"
@@ -521,15 +521,15 @@ electron-to-chromium@^1.3.878:
   resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.879.tgz?cache=0&sync_timestamp=1635228198620&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.879.tgz#4aba9700cfb241fb95c6ed69e31785e3d1605a43"
   integrity sha1-SrqXAM+yQfuVxu1p4xeF49FgWkM=
 
-element-plus@^1.3.0-beta.9:
-  version "1.3.0-beta.9"
-  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.3.0-beta.9.tgz#eb182f30b56003b5b89b2174e6f78b603e246364"
-  integrity sha512-h+I6VVtJNwjVkNhfhXp2oCYjgBN7kWQ2Y6nWzwc0wiphAlQDhGuBXAGj9eYpf1uOrMgIpFFwbRhvK7C6sOJsWg==
+element-plus@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.0.0.tgz#4ca935c29ad862a86b02e0462ee4c27a8b6331e8"
+  integrity sha512-bLt/Ahn0ejOKuYA4HR3iuGLHTt4pRzQZwCx1G2BLHEJLZi7CfLiFnjZMhGhYNkk49ir4JHtnBJTgLhNNaKALcA==
   dependencies:
     "@ctrl/tinycolor" "^3.4.0"
     "@element-plus/icons-vue" "^0.2.6"
     "@popperjs/core" "^2.11.2"
-    "@vueuse/core" "^7.5.4"
+    "@vueuse/core" "^7.5.5"
     async-validator "^4.0.7"
     dayjs "^1.10.7"
     lodash "^4.17.21"
