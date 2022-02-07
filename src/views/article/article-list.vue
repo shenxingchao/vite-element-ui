@@ -72,8 +72,8 @@
         </template>
       </custom-table>
     </el-card>
-    <div v-el-drag-dialog>
-      <el-dialog :title="$t('opt.dialog')" v-model="dialogVisible">
+    <div>
+      <el-dialog :title="$t('opt.dialog')" v-model="dialogVisible" :draggable="true">
         <span>{{$t('info.move_dialog')}}</span>
         <template #footer>
           <span class="dialog-footer">

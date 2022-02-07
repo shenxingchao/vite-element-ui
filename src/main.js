@@ -15,8 +15,6 @@ import SvgPlugin from '@/components/SvgIcon'
 import '@/permission'
 //引入mock.js 模拟数据 开启这里 使用moke/index.js文件拦截
 import './mock'
-//引入dialog组件可拖拽指令 使用方法 标签上加上v-el-drag-dialog即可
-import elDragDialog from '@/directive/el-drag-dialog'
 //引入全局变量
 import provide from '@/plugins/provide'
 //引入全局组件：elIcon
@@ -39,8 +37,6 @@ app.use(ElementPlus, {
 app.use(SvgPlugin, {
   imports: []
 })
-//使用拖动指令
-app.use(elDragDialog)
 //使用全局变量
 app.use(provide)
 //使用全局组件
