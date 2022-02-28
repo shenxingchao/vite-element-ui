@@ -179,6 +179,7 @@ $cursor: $theme;
       -webkit-appearance: none;
       border-radius: 0px;
       caret-color: $cursor;
+      box-shadow: none;
 
       &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px $light_gray inset !important;
