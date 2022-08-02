@@ -10,7 +10,7 @@
     "@element-plus/icons": "^0.0.11",
     "@tinymce/tinymce-vue": "^4.0.4",
     "axios": "0.18.1",
-    "element-plus": "^2.2.1",
+    "element-plus": "^2.2.12",
     "fuse.js": "^6.4.1",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
@@ -20,7 +20,7 @@
     "screenfull": "^5.0.2",
     "sortablejs": "^1.10.2",
     "tinymce": "^5.9.2",
-    "vue": "3.2.19",
+    "vue": "3.2.37",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
